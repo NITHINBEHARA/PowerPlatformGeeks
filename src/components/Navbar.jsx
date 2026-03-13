@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Rocket } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -36,48 +36,47 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? 'glass navbar-scrolled' : ''}`}>
       <div className="container nav-container">
+
         <Link to="/" className="brand" aria-label="PowerPlatformGeeks Home">
           <img src="/logo.svg" alt="PowerPlatformGeeks Logo" className="logo-img" />
         </Link>
-        
+
         <div className="nav-links desktop-only">
           {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
+            <Link
+              key={link.name}
               to={link.path}
               className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
             >
               {link.name}
             </Link>
           ))}
-          <Link to="/contact" className="btn btn-primary nav-cta-btn">
-            Get Started
-          </Link>
         </div>
 
-        <button 
-          className="mobile-menu-btn" 
+        <button
+          className="mobile-menu-btn"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X /> : <Menu />}
         </button>
+
       </div>
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="mobile-menu glass">
           {navLinks.map((link) => (
-             <Link 
-              key={link.name} 
+            <Link
+              key={link.name}
               to={link.path}
               className={`mobile-nav-link ${location.pathname === link.path ? 'active' : ''}`}
             >
               {link.name}
             </Link>
           ))}
-          <Link to="/contact" className="btn btn-primary mobile-btn">Get Started</Link>
         </div>
       )}
+
     </nav>
   );
 };
