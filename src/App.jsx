@@ -5,10 +5,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import IndustryExpertise from './pages/IndustryExpertise';
-import Blogs from './pages/Blogs';
-import Community from './pages/Community';
 import Certifications from './pages/Certifications';
-import Accolades from './pages/Accolades';
 import Contact from './pages/Contact';
 import './App.css';
 
@@ -23,10 +20,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/industry-expertise" element={<IndustryExpertise />} />
-            <Route path="/blogs" element={<Blogs />} />
-            <Route path="/community" element={<Community />} />
             <Route path="/certifications" element={<Certifications />} />
-            <Route path="/accolades" element={<Accolades />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>

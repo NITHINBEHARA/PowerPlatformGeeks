@@ -26,10 +26,7 @@ const Navbar = () => {
     { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
     { name: 'Industry Expertise', path: '/industry-expertise' },
-    { name: 'Blogs', path: '/blogs' },
-    { name: 'Community', path: '/community' },
     { name: 'Certifications', path: '/certifications' },
-    { name: 'Accolades', path: '/accolades' },
     { name: 'Contact', path: '/contact' }
   ];
 

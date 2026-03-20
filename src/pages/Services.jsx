@@ -42,6 +42,14 @@ const Services = () => {
       capabilities: ["Environment Strategy", "DLP Policies", "Microsoft Purview Integration"],
       benefits: "Mitigate shadow IT risks and ensure compliance.",
       useCases: "Regulatory Compliance, Multi-tenant Architecture Management."
+    },
+    {
+      title: "Leverage Microsoft Technology Investments",
+      icon: <div className="w-16 h-16 bg-slate-200 flex items-center justify-center text-slate-500 rounded-xl text-sm font-semibold text-center leading-tight">Image<br/>coming<br/>soon</div>,
+      desc: "Maximize ROI by integrating Power Platform with Teams, SharePoint, Office 365, Dynamics, and Purview.",
+      capabilities: [],
+      benefits: "",
+      useCases: ""
     }
   ];
 

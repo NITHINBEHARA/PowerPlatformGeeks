@@ -51,28 +51,6 @@ const About = () => {
         </div>
       </div>
 
-      <div className="bg-slate-50 dark:bg-slate-900 py-20">
-        <div className="container section-header text-center">
-          <h2 className="text-4xl font-bold mb-6">Leadership</h2>
-          <p className="text-lg text-secondary max-w-2xl mx-auto">
-            Guided by industry veterans with deep expertise in enterprise architecture and Microsoft technologies.
-          </p>
-        </div>
-        <div className="container grid grid-cols-4 gap-8">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="glass-card text-center overflow-hidden p-0 group">
-                <div className="h-64 bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
-                  <Users className="text-secondary opacity-50" size={48} />
-                </div>
-                <div className="p-6">
-                  <h4 className="font-bold text-xl">Jane Doe</h4>
-                  <p className="text-blue-primary font-medium mb-3">Principal Architect</p>
-                  <p className="text-secondary text-sm">15+ years of enterprise transformation experience.</p>
-                </div>
-              </div>
-            ))}
-        </div>
-      </div>
     </div>
   );
 };
