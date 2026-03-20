@@ -81,14 +81,11 @@ p {
   background-clip: text;
 }
 
-/* Layout */
 .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
   width: 100%;
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
   box-sizing: border-box;
 }
 
@@ -240,16 +237,6 @@ p {
 .main-content {
   padding-top: 90px;
 }
-/* ---------- NAVBAR FIX ---------- */
-
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 16px 20px;
-}
 
 /* Logo size */
 
@@ -279,4 +266,15 @@ p {
 .cta-btn {
   margin-left: auto;
   flex-shrink: 0;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  width: 100%;
 }

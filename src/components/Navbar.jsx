@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import './Navbar.css';
+import logo from '../assets/logo.png';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -35,7 +36,7 @@ const Navbar = () => {
       <div className="container nav-container">
 
         <Link to="/" className="brand" aria-label="PowerPlatformGeeks Home">
-          <img src="/logo.svg" alt="PowerPlatformGeeks Logo" className="logo-img" />
+          <img src={logo} alt="PowerPlatformGeeks Logo" className="logo-img" />
         </Link>
 
         <div className="nav-links desktop-only">
