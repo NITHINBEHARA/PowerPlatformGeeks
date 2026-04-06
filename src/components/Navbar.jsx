@@ -35,8 +35,8 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? 'glass navbar-scrolled' : ''}`}>
       <div className="container nav-container">
 
-        <Link to="/" className="brand" aria-label="PowerPlatformGeeks Home">
-          <img src={logo} alt="PowerPlatformGeeks Logo" className="logo-img" />
+        <Link to="/" className="brand logo-container" aria-label="PowerPlatformGeeks Home">
+          <img src={logo} alt="PowerPlatform Geeks Logo" className="logo-img" />
         </Link>
 
         <div className="nav-links desktop-only">

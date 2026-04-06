@@ -151,28 +151,28 @@ const Home = () => {
           />
           <div className="impact-stats-grid">
             <div className="stat-card">
-              <span className="stat-value"><AnimatedCounter value="224" suffix="%" /></span>
+              <span className="stat-value">224%</span>
               <h4 className="stat-title">ROI</h4>
               <p className="stat-desc">Organizations achieve a 224% return on investment using Microsoft Power Platform.</p>
             </div>
             <div className="stat-card">
-              <span className="stat-value">$<AnimatedCounter value="81.7" suffix="M" /></span>
+              <span className="stat-value">$81.7M</span>
               <h4 className="stat-title">Net Present Value</h4>
               <p className="stat-desc">Financial value generated over a three-year period.</p>
             </div>
             <div className="stat-card">
-              <span className="stat-value">&lt; <AnimatedCounter value="6" /></span>
+              <span className="stat-value">&lt; 6</span>
               <h4 className="stat-title">Months Payback</h4>
               <p className="stat-desc">Average time required for organizations to recover their investment.</p>
             </div>
             <div className="stat-card">
-              <span className="stat-value"><AnimatedCounter value="1000000" suffix="+" /></span>
+              <span className="stat-value">1,000,000+</span>
               <h4 className="stat-title">Hours Saved</h4>
               <p className="stat-desc">Productivity hours saved through automation and digital workflows.</p>
             </div>
           </div>
           <p className="credibility-note">
-            Source: Microsoft & Forrester Total Economic Impact Study 2024 based on a composite organization of 30,000 employees with $10B annual revenue.
+            Source: Microsoft and Forrester Total Economic Impact Study 2024 based on a composite organization of 30,000 employees with $10B annual revenue.
           </p>
         </div>
       </RevealSection>
@@ -200,6 +200,9 @@ const Home = () => {
               <p className="text-secondary">Automation eliminates repetitive manual work and improves productivity.</p>
             </div>
           </div>
+          <p className="credibility-note">
+            Source: Microsoft Power Platform Productivity Study 2024
+          </p>
         </div>
       </RevealSection>
 
@@ -239,6 +242,9 @@ const Home = () => {
               </div>
             </div>
           </div>
+          <p className="credibility-note">
+            Source: Microsoft and Forrester Low-Code Impact Report 2024
+          </p>
         </div>
       </RevealSection>
 
@@ -255,7 +261,7 @@ const Home = () => {
               <p className="success-impact text-secondary">Saved $75M annually through more than 300 custom Power Platform solutions.</p>
             </div>
             <div className="success-card">
-              <div className="customer-name">G&J Pepsi</div>
+              <div className="customer-name">G and J Pepsi</div>
               <p className="success-impact text-secondary">Saved $1.5M by digitizing field personnel operations and avoiding external development costs.</p>
             </div>
             <div className="success-card">
@@ -267,6 +273,9 @@ const Home = () => {
               <p className="success-impact text-secondary">Reduced manual processing time by 60% and operational costs by 50% using Copilot in Power Automate.</p>
             </div>
           </div>
+          <p className="credibility-note">
+            Source: Microsoft Customer Success Stories (Public Case Studies)
+          </p>
         </div>
       </RevealSection>
 
@@ -313,21 +322,22 @@ const Home = () => {
             <h2 className="section-title">Our <span className="text-gradient">Services</span></h2>
             <p className="section-subtitle">Comprehensive consulting tailored to your enterprise.</p>
           </div>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto px-4">
             {[
-              { title: 'Implementation', icon: <Database />, desc: 'End-to-end Power Platform solutions.' },
-              { title: 'Enterprise Integrations', icon: <Briefcase />, desc: 'Seamlessly connect your legacy systems.' },
-              { title: 'Testing & QA', icon: <ShieldCheck />, desc: 'Rigorous validation of all deployments.' },
-              { title: 'Training & Enablement', icon: <BarChart />, desc: 'Upskill your team organically.' },
-              { title: 'Governance', icon: <Database />, desc: 'Establish robust CoE and ALM practices.' },
-              { title: 'Leverage Microsoft Technology Investments', icon: <div className="flex items-center justify-center w-16 h-16 bg-slate-200 text-slate-500 rounded-lg text-xs font-semibold text-center leading-tight">Image<br />coming<br />soon</div>, desc: 'Maximize ROI by integrating Power Platform with Teams, SharePoint, Office 365, Dynamics, and Purview.' }
+              { title: 'Implementation', link: '/services#implementation' },
+              { title: 'Enterprise Integrations', link: '/services#integrations' },
+              { title: 'Testing and QA', link: '/services#testing' },
+              { title: 'Training and Enablement', link: '/services#training' },
+              { title: 'Governance', link: '/services#governance' },
+              { title: 'Leverage Microsoft Technology Investments', link: '/services#microsoft-stack' }
             ].map((srv, idx) => (
-              <div key={idx} className="glass-card service-card slide-up">
-                <div className="service-icon">{srv.icon}</div>
-                <h4>{srv.title}</h4>
-                <p>{srv.desc}</p>
-                <Link to="/services" className="service-link">Discover <ArrowRight size={14} /></Link>
-              </div>
+              <Link 
+                key={idx} 
+                to={srv.link} 
+                className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-2 cursor-pointer flex items-center justify-center text-center border border-slate-100 min-h-[120px]"
+              >
+                <h4 className="text-xl font-bold text-slate-800 m-0">{srv.title}</h4>
+              </Link>
             ))}
           </div>
         </div>

@@ -7,11 +7,13 @@ import Services from './pages/Services';
 import IndustryExpertise from './pages/IndustryExpertise';
 import Certifications from './pages/Certifications';
 import Contact from './pages/Contact';
+import ScrollToTop from './components/ScrollToTop';
 import './App.css';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="app-container">
         <Navbar />
         <main className="main-content">

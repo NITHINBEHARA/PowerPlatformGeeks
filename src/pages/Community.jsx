@@ -42,7 +42,7 @@ const Community = () => {
         <div className="container max-w-4xl mx-auto flex flex-col gap-6">
           {[
             { date: "MAR 15", month: "MAR", label: "Webinar", title: "Copilot Studio Deep Dive" },
-            { date: "MAR 22", month: "MAR", label: "Live Q&A", title: "Governance in Multi-Tenant Environments" },
+            { date: "MAR 22", month: "MAR", label: "Live Q and A", title: "Governance in Multi-Tenant Environments" },
             { date: "APR 05", month: "APR", label: "Masterclass", title: "Advanced Power Pages Authentication" }
           ].map((evt, idx) => (
             <div key={idx} className="glass-card flex items-center justify-between p-6">

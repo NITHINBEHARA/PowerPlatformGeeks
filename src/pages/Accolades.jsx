@@ -5,7 +5,7 @@ const Accolades = () => {
   return (
     <div className="page pb-20">
       <div className="page-header container">
-        <h1 className="section-title text-gradient">Awards & Success Stories</h1>
+        <h1 className="section-title text-gradient">Awards and Success Stories</h1>
         <p className="section-subtitle">
           Recognized globally for Microsoft Power Platform excellence.
         </p>
@@ -52,7 +52,7 @@ const Accolades = () => {
                   "PowerPlatformGeeks completely transformed our operations. Their enterprise architecture approach ensured our custom apps were secure, scalable, and adopted quickly."
                 </p>
                 <div className="font-bold">{client}</div>
-                <div className="text-sm text-blue-primary">CTO & Enterprise Architect</div>
+                <div className="text-sm text-blue-primary">CTO and Enterprise Architect</div>
               </div>
             ))}
           </div>

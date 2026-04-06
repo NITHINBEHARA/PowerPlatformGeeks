@@ -1,4 +1,5 @@
 import { Users, Target, Shield, Award } from 'lucide-react';
+import officeCollab from '../assets/office_collaboration.png';
 import './PageStyles.css';
 
 const About = () => {
@@ -17,7 +18,7 @@ const About = () => {
       <div className="container section">
         <div className="grid grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="text-4xl font-bold mb-6">Mission & Vision</h2>
+            <h2 className="text-4xl font-bold mb-6">Mission and Vision</h2>
             <p className="text-lg text-secondary mb-6 leading-relaxed">
               Our mission is to democratize technology by empowering organizations to build scalable, 
               secure, and intelligent solutions using the Microsoft Power Platform.
@@ -40,9 +41,7 @@ const About = () => {
             </div>
           </div>
           <div className="relative">
-            <div className="glass-card h-96 w-full flex items-center justify-center bg-blue-50 dark:bg-slate-800">
-               <span className="text-secondary">Image Prototype: Office Collaboration</span>
-            </div>
+            <img src={officeCollab} alt="Office Collaboration Teamwork" className="h-96 w-full object-cover rounded-2xl shadow-xl border border-slate-100" />
             <div className="absolute -bottom-8 -left-8 glass-card p-6 shadow-2xl">
               <h3 className="text-4xl font-bold text-blue-primary mb-2">500+</h3>
               <p className="font-semibold text-secondary">Projects Delivered</p>

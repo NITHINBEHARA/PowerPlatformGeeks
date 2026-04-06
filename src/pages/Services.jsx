@@ -1,9 +1,33 @@
-import { Database, Activity, ShieldCheck, GraduationCap, Server } from 'lucide-react';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+import { Database, Activity, ShieldCheck, GraduationCap, Server, Layers } from 'lucide-react';
 import './PageStyles.css';
 
 const Services = () => {
+  const location = useLocation();
+
+useEffect(() => {
+  if (location.hash) {
+    setTimeout(() => {
+      const id = location.hash.replace("#", "");
+      const element = document.getElementById(id);
+
+      if (element) {
+        const yOffset = -80; // adjust if needed
+        const y =
+          element.getBoundingClientRect().top +
+          window.pageYOffset +
+          yOffset;
+
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }, 100); // 🔥 delay added
+  }
+}, [location]);
+
   const servicesData = [
     {
+      id: "implementation",
       title: "Power Platform Implementation",
       icon: <Database size={48} />,
       desc: "End-to-end development of custom Power Apps and automated workflows.",
@@ -12,6 +36,7 @@ const Services = () => {
       useCases: "Employee Onboarding, Inventory Management, Customer Portals."
     },
     {
+      id: "enterprise",
       title: "Enterprise Integrations",
       icon: <Server size={48} />,
       desc: "Connect legacy systems to modern cloud solutions seamlessly.",
@@ -20,7 +45,8 @@ const Services = () => {
       useCases: "ERP Integration, Legacy System Modernization."
     },
     {
-      title: "Testing & Quality Assurance",
+      id: "testing",
+      title: "Testing and Quality Assurance",
       icon: <Activity size={48} />,
       desc: "Rigorous validation for robust and scalable deployments.",
       capabilities: ["Automated UI Testing", "Performance Testing", "Security Audits"],
@@ -28,7 +54,8 @@ const Services = () => {
       useCases: "Pre-deployment validation, CI/CD Pipeline integration."
     },
     {
-      title: "Training & Enablement",
+      id: "training",
+      title: "Training and Enablement",
       icon: <GraduationCap size={48} />,
       desc: "Upskill your workforce to embrace citizen development securely.",
       capabilities: ["Maker Workshops", "Admin Training", "CoE Starter Kit Implementation"],
@@ -36,7 +63,8 @@ const Services = () => {
       useCases: "Internal Hackathons, Departmental Citizen Developer initiatives."
     },
     {
-      title: "Governance & Security",
+      id: "governance",
+      title: "Governance and Security",
       icon: <ShieldCheck size={48} />,
       desc: "Establish robust Center of Excellence and ALM practices.",
       capabilities: ["Environment Strategy", "DLP Policies", "Microsoft Purview Integration"],
@@ -44,12 +72,18 @@ const Services = () => {
       useCases: "Regulatory Compliance, Multi-tenant Architecture Management."
     },
     {
+      id: "microsoft-stack",
       title: "Leverage Microsoft Technology Investments",
-      icon: <div className="w-16 h-16 bg-slate-200 flex items-center justify-center text-slate-500 rounded-xl text-sm font-semibold text-center leading-tight">Image<br/>coming<br/>soon</div>,
+      icon: <Layers size={48} />,
       desc: "Maximize ROI by integrating Power Platform with Teams, SharePoint, Office 365, Dynamics, and Purview.",
-      capabilities: [],
-      benefits: "",
-      useCases: ""
+      capabilities: [
+        "Integration with Teams, SharePoint, and Office 365",
+        "Unified data platform with Dataverse",
+        "Automation using Power Automate",
+        "AI-powered insights with Power BI and Copilot"
+      ],
+      benefits: "Improved productivity and collaboration, reduced operational costs, faster decision making with real-time insights, and seamless integration across the Microsoft ecosystem.",
+      useCases: "Automated approval workflows across departments, Real-time dashboards for business insights, Employee self-service portals, Cross-platform data integration."
     }
   ];
 
@@ -65,7 +99,7 @@ const Services = () => {
       <div className="container pb-section">
         <div className="services-list flex-col gap-8">
           {servicesData.map((service, idx) => (
-            <div key={idx} className="glass-card service-detail-card flex gap-6">
+            <div key={idx} id={service.id} className="glass-card service-detail-card flex gap-6">
               <div className="service-detail-icon">
                 {service.icon}
               </div>

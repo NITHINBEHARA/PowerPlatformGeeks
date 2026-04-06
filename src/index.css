@@ -20,6 +20,9 @@
 }
 
 /* Dark mode removed for true light theme */
+html {
+  scroll-behavior: smooth;
+}
 
 * {
   margin: 0;
@@ -138,7 +141,6 @@ p {
   background: linear-gradient(135deg, rgba(15, 107, 111, 0.05) 0%, rgba(15, 107, 111, 0) 100%);
   opacity: 0;
   transition: var(--transition);
-  pointer-events: none;
 }
 
 .glass-card:hover {
@@ -277,4 +279,15 @@ body {
   margin: 0 auto;
   padding: 0 24px;
   width: 100%;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+#implementation,
+#enterprise,
+#testing,
+#training,
+#governance {
+  scroll-margin-top: 100px;
 }

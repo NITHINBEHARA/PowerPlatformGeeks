@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ShieldCheck } from "lucide-react";
 import './PageStyles.css';
 
 const Certifications = () => {
@@ -18,8 +19,8 @@ const Certifications = () => {
     ],
     m365: [
       { title: "MS-900", desc: "Microsoft 365 Fundamentals" },
-      { title: "Security", desc: "Compliance & Governance Expertise" },
-      { title: "Collaboration", desc: "Teams & M365 Integration" }
+      { title: "Security", desc: "Compliance and Governance Expertise" },
+      { title: "Collaboration", desc: "Teams and M365 Integration" }
     ]
   };
 
@@ -30,7 +31,7 @@ const Certifications = () => {
       <div className="page-header container">
         <h1 className="section-title text-gradient">Certifications</h1>
         <p className="section-subtitle max-w-3xl mx-auto mt-8 text-xl">
-          Several Power Platform Certified professionals on staff with decades of experience in Microsoft technologies, delivering projects on time and within budget.
+          Several Power Platform Certified professionals on staff with decades of working on Microsoft Technologies to deliver projects on time and within budget.
         </p>
       </div>
 
@@ -58,6 +59,27 @@ const Certifications = () => {
               <p>{item.desc}</p>
             </div>
           ))}
+        </div>
+
+        {/* Certified Experts Section */}
+        <div className="mt-16 text-center">
+          <h2 className="text-3xl font-bold mb-6">Certified Power Platform Experts</h2>
+          <p className="text-xl text-secondary mb-8">
+            Our consultants hold globally recognized Microsoft certifications:
+          </p>
+          <div className="flex flex-col gap-4 max-w-3xl mx-auto mb-8">
+            <div className="cert-card flex items-center justify-start gap-4 text-left p-6 transition-transform hover:-translate-y-2 duration-300 shadow-sm hover:shadow-md">
+              <ShieldCheck className="text-blue-primary flex-shrink-0" size={32} />
+              <h3 className="m-0 pb-0 border-none text-xl font-bold">Microsoft Certified: Power Platform Developer Associate</h3>
+            </div>
+            <div className="cert-card flex items-center justify-start gap-4 text-left p-6 transition-transform hover:-translate-y-2 duration-300 shadow-sm hover:shadow-md">
+              <ShieldCheck className="text-blue-primary flex-shrink-0" size={32} />
+              <h3 className="m-0 pb-0 border-none text-xl font-bold">Microsoft Certified: Power Platform Solution Architect Expert</h3>
+            </div>
+          </div>
+          <p className="text-lg font-medium text-slate-700">
+            Backed by real-world implementation experience across enterprise solutions.
+          </p>
         </div>
 
       </div>
