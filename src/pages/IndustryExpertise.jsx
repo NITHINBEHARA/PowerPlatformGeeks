@@ -17,7 +17,7 @@ const IndustryExpertise = () => {
       <div className="page-header container text-center">
         <h1 className="section-title text-gradient">Industry Expertise</h1>
         <p className="section-subtitle">
-          Tailored Microsoft Power Platform solutions designed for the unique challenges of your sector.
+          Tailored Microsoft Power Platform solutions designed for the unique challenges of your industry. We have deep domain expertise in:
         </p>
       </div>
 

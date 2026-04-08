@@ -81,21 +81,53 @@ const Contact = () => {
             )}
           </div>
 
-          {/* Office Details - Unified Card Restored */}
+          {/* Unified Contact Details List */}
           <div className="flex flex-col h-full">
             <div className="bg-white p-8 flex flex-col shadow-xl rounded-2xl border border-color h-full justify-center w-full">
-              
               <div className="flex flex-col gap-8">
-                {/* Address Block */}
+
+                {/* New York Block */}
                 <div className="flex items-center gap-6">
                   <div className="bg-blue-50 text-blue-primary p-4 rounded-xl shadow-sm flex items-center justify-center shrink-0">
                     <MapPin size={28} />
                   </div>
-                  <div className="flex flex-col">
+                  <div className="flex flex-col justify-center">
                     <h4 className="font-bold text-xl mb-1 text-blue-primary">New York</h4>
                     <p className="text-secondary text-lg leading-relaxed mb-0">
                       3094 Crescent St.,<br />
                       Astoria, NY - 11102
+                    </p>
+                  </div>
+                </div>
+
+                <div className="border-t border-color w-full opacity-50 mt-2 mb-2"></div>
+
+                {/* Massachusetts Block */}
+                <div className="flex items-center gap-6">
+                  <div className="bg-blue-50 text-blue-primary p-4 rounded-xl shadow-sm flex items-center justify-center shrink-0">
+                    <MapPin size={28} />
+                  </div>
+                  <div className="flex flex-col justify-center">
+                    <h4 className="font-bold text-xl mb-1 text-blue-primary">Massachusetts</h4>
+                    <p className="text-secondary text-lg leading-relaxed mb-0">
+                      13, Water St, Suite 101,<br />
+                      Holliston, MA 01746
+                    </p>
+                  </div>
+                </div>
+
+                <div className="border-t border-color w-full opacity-50 mt-2 mb-2"></div>
+
+                {/* North Carolina Block */}
+                <div className="flex items-center gap-6">
+                  <div className="bg-blue-50 text-blue-primary p-4 rounded-xl shadow-sm flex items-center justify-center shrink-0">
+                    <MapPin size={28} />
+                  </div>
+                  <div className="flex flex-col justify-center">
+                    <h4 className="font-bold text-xl mb-1 text-blue-primary">North Carolina</h4>
+                    <p className="text-secondary text-lg leading-relaxed mb-0">
+                      1500 Piney Plains Road, Suite 201,<br />
+                      Cary, NC 27518
                     </p>
                   </div>
                 </div>
@@ -129,7 +161,6 @@ const Contact = () => {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>

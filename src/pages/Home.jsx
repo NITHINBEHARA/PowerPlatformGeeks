@@ -347,13 +347,15 @@ const Home = () => {
       <section className="cta-banner-section section">
         <div className="container">
           <div className="cta-banner glass p-12 text-center rounded-2xl relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 opacity-10"></div>
-            <h2 className="text-4xl font-bold mb-4">Ready to Transform Your Business?</h2>
-            <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-              Schedule a strategy session today and discover how our enterprise consulting
-              can accelerate your Microsoft Power Platform journey.
-            </p>
-            <Link to="/contact" className="btn btn-primary btn-lg">Schedule Session Now</Link>
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 opacity-10 pointer-events-none"></div>
+            <div className="relative z-10">
+              <h2 className="text-4xl font-bold mb-4">Ready to Transform Your Business?</h2>
+              <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+                Schedule a strategy session today and discover how our enterprise consulting
+                can accelerate your Microsoft Power Platform journey.
+              </p>
+              <Link to="/contact" className="btn btn-primary btn-lg">Schedule Session Now</Link>
+            </div>
           </div>
         </div>
       </section>
