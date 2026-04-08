@@ -28,6 +28,7 @@ const Navbar = () => {
     { name: 'Services', path: '/services' },
     { name: 'Industry Expertise', path: '/industry-expertise' },
     { name: 'Certifications', path: '/certifications' },
+    { name: 'Blogs', path: '/blogs' },
     { name: 'Contact', path: '/contact' }
   ];
 

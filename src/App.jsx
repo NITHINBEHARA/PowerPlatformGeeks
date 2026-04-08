@@ -7,6 +7,7 @@ import Services from './pages/Services';
 import IndustryExpertise from './pages/IndustryExpertise';
 import Certifications from './pages/Certifications';
 import Contact from './pages/Contact';
+import Blogs from './pages/Blogs';
 import ScrollToTop from './components/ScrollToTop';
 import './App.css';
 
@@ -23,6 +24,7 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/industry-expertise" element={<IndustryExpertise />} />
             <Route path="/certifications" element={<Certifications />} />
+            <Route path="/blogs" element={<Blogs />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>

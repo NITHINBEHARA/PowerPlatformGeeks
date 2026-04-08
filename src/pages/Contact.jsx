@@ -132,21 +132,6 @@ const Contact = () => {
                   </div>
                 </div>
 
-                <div className="border-t border-color w-full opacity-50 mt-2 mb-2"></div>
-
-                {/* Mobile Block */}
-                <div className="flex items-center gap-6">
-                  <div className="bg-blue-50 text-blue-primary p-4 rounded-xl shadow-sm flex items-center justify-center shrink-0">
-                    <Phone size={28} />
-                  </div>
-                  <div className="flex flex-col justify-center">
-                    <h4 className="font-bold text-xl mb-1 text-blue-primary">Mobile</h4>
-                    <p className="text-secondary text-lg font-bold tracking-wider mb-0">508-625-0755</p>
-                  </div>
-                </div>
-
-                <div className="border-t border-color w-full opacity-50 mt-2 mb-2"></div>
-
                 {/* Email Block */}
                 <div className="flex items-center gap-6">
                   <div className="bg-blue-50 text-blue-primary p-4 rounded-xl shadow-sm flex items-center justify-center shrink-0">
@@ -154,7 +139,11 @@ const Contact = () => {
                   </div>
                   <div className="flex flex-col justify-center">
                     <h4 className="font-bold text-xl mb-1 text-blue-primary">Email Us</h4>
-                    <p className="text-secondary text-lg mb-0">hello@powerplatformgeeks.com</p>
+                    <p className="text-secondary text-lg mb-0">
+                      <a href="mailto:hello@powerplatformgeeks.com" className="hover:text-blue-primary transition-colors">
+                        hello@powerplatformgeeks.com
+                      </a>
+                    </p>
                   </div>
                 </div>
 
