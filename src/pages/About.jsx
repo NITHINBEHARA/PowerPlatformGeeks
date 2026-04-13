@@ -42,10 +42,6 @@ const About = () => {
           </div>
           <div className="relative">
             <img src={officeCollab} alt="Office Collaboration Teamwork" className="h-96 w-full object-cover rounded-2xl shadow-xl border border-slate-100" />
-            <div className="absolute -bottom-8 -left-8 glass-card p-6 shadow-2xl">
-              <h3 className="text-4xl font-bold text-blue-primary mb-2">500+</h3>
-              <p className="font-semibold text-secondary">Projects Delivered</p>
-            </div>
           </div>
         </div>
       </div>

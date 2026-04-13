@@ -8,7 +8,7 @@
 
 .stat-card {
   text-align: center;
-  padding: 3rem 2rem;
+  padding: 2rem 1.5rem; /* Tightened from 3rem 2rem */
   background: white;
   border: 1px solid var(--border-color);
   border-radius: 20px;
@@ -61,7 +61,7 @@
 }
 
 .feature-card {
-  padding: 2.5rem;
+  padding: 1.5rem; /* Tightened from 2.5rem */
   background: white;
   border-radius: 20px;
   border: 1px solid var(--border-color);
@@ -97,7 +97,7 @@
   display: flex;
   align-items: flex-start;
   gap: 1.5rem;
-  padding: 2rem;
+  padding: 1.5rem; /* Tightened from 2rem */
   background: var(--surface-color);
   border-radius: 16px;
   border: 1px solid transparent;
@@ -126,7 +126,7 @@
   background: white;
   border: 1px solid var(--border-color);
   border-radius: 20px;
-  padding: 2.5rem;
+  padding: 1.5rem; /* Tightened from 2.5rem */
   display: flex;
   flex-direction: column;
   transition: var(--transition);
@@ -160,7 +160,7 @@
   background: white;
   border: 1px solid var(--border-color);
   border-radius: 16px;
-  padding: 1.5rem;
+  padding: 1.25rem; /* Tightened */
   text-align: center;
   transition: var(--transition);
 }

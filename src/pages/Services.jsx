@@ -8,20 +8,15 @@ const Services = () => {
 
 useEffect(() => {
   if (location.hash) {
+    // Increase timeout to 300ms to ensure DOM layout has fully completed
     setTimeout(() => {
       const id = location.hash.replace("#", "");
       const element = document.getElementById(id);
 
       if (element) {
-        const yOffset = -80; // adjust if needed
-        const y =
-          element.getBoundingClientRect().top +
-          window.pageYOffset +
-          yOffset;
-
-        window.scrollTo({ top: y, behavior: "smooth" });
+        element.scrollIntoView({ behavior: "smooth" });
       }
-    }, 100); // 🔥 delay added
+    }, 300);
   }
 }, [location]);
 
@@ -36,7 +31,7 @@ useEffect(() => {
       useCases: "Employee Onboarding, Inventory Management, Customer Portals."
     },
     {
-      id: "enterprise",
+      id: "integrations",
       title: "Enterprise Integrations",
       icon: <Server size={48} />,
       desc: "Connect legacy systems to modern cloud solutions seamlessly.",
@@ -97,35 +92,35 @@ useEffect(() => {
       </div>
 
       <div className="container pb-section">
-        <div className="services-list flex-col gap-8">
+        <div className="flex flex-col gap-8 max-w-5xl mx-auto">
           {servicesData.map((service, idx) => (
-            <div key={idx} id={service.id} className="glass-card service-detail-card flex gap-6">
-              <div className="service-detail-icon">
+            <section key={idx} id={service.id} className="glass-card flex flex-col md:flex-row gap-6 p-6 relative target-glow items-start transition-all duration-300 w-full mb-4" style={{ scrollMarginTop: '100px' }}>
+              <div className="bg-blue-50 p-4 rounded-2xl flex-shrink-0 flex items-center justify-center text-blue-primary">
                 {service.icon}
               </div>
-              <div className="service-detail-content">
-                <h3 className="text-2xl mb-2">{service.title}</h3>
-                <p className="text-secondary mb-4">{service.desc}</p>
+              <div className="flex-1 w-full text-left">
+                <h3 className="text-2xl font-bold mb-2 text-slate-800">{service.title}</h3>
+                <p className="text-secondary mb-4 text-base leading-relaxed">{service.desc}</p>
                 
-                <div className="grid grid-cols-2 gap-4 mb-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
                   <div>
-                    <h4 className="font-semibold text-blue-primary">Key Capabilities</h4>
-                    <ul className="list-disc pl-5 text-secondary text-sm">
+                    <h4 className="font-semibold text-blue-primary mb-2">Key Capabilities</h4>
+                    <ul className="list-disc pl-5 text-secondary text-sm space-y-1">
                       {service.capabilities.map((cap, i) => <li key={i}>{cap}</li>)}
                     </ul>
                   </div>
                   <div>
-                     <h4 className="font-semibold text-blue-primary">Benefits</h4>
+                     <h4 className="font-semibold text-blue-primary mb-2">Benefits</h4>
                      <p className="text-secondary text-sm">{service.benefits}</p>
                   </div>
                 </div>
 
-                <div className="use-cases pt-4 border-t border-color">
-                  <span className="font-semibold">Example Use Cases: </span>
+                <div className="use-cases pt-4 border-t border-color mt-2">
+                  <span className="font-semibold text-sm">Example Use Cases: </span>
                   <span className="text-secondary text-sm">{service.useCases}</span>
                 </div>
               </div>
-            </div>
+            </section>
           ))}
         </div>
       </div>

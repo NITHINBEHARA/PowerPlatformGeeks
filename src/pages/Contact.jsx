@@ -126,8 +126,8 @@ const Contact = () => {
                   <div className="flex flex-col justify-center">
                     <h4 className="font-bold text-xl mb-1 text-blue-primary">North Carolina</h4>
                     <p className="text-secondary text-lg leading-relaxed mb-0">
-                      1500 Piney Plains Road, Suite 201,<br />
-                      Cary, NC 27518
+                      360 Anderson Road,<br />
+                      Murphy, NC 28906
                     </p>
                   </div>
                 </div>

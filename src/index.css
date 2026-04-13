@@ -93,12 +93,12 @@ p {
 }
 
 .section {
-  padding: 6rem 0;
+  padding: 3rem 0; /* 48px top/bottom padding instead of 3.5rem (56px) */
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem; /* 40px instead of 64px */
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -106,12 +106,13 @@ p {
 
 .section-title {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem; /* 12px tightly grouped to subtitle */
 }
 
 .section-subtitle {
   color: var(--text-secondary);
   font-size: 1.125rem;
+  margin-bottom: 0px;
 }
 
 /* Glassmorphism Classes */
@@ -127,7 +128,7 @@ p {
   background: #ffffff;
   border: 1px solid var(--border-color);
   border-radius: 12px;
-  padding: 2rem;
+  padding: 1.5rem; /* 24px inner padding instead of 32px */
   transition: var(--transition);
   position: relative;
   overflow: hidden;
@@ -141,6 +142,7 @@ p {
   background: linear-gradient(135deg, rgba(15, 107, 111, 0.05) 0%, rgba(15, 107, 111, 0) 100%);
   opacity: 0;
   transition: var(--transition);
+  pointer-events: none;
 }
 
 .glass-card:hover {
@@ -213,12 +215,12 @@ p {
   .grid-cols-4 { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
   .grid-cols-3 { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
   .grid-cols-2 { grid-template-columns: 1fr; gap: 2rem; }
-  .section { padding: 5rem 0; }
+  .section { padding: 3rem 0; }
 }
 
 @media (max-width: 768px) {
   .grid-cols-4, .grid-cols-3, .grid-cols-2 { grid-template-columns: 1fr; gap: 1.5rem; }
-  .section { padding: 4rem 0; }
+  .section { padding: 2.5rem 0; }
 }
 
 /* Animations */
@@ -234,6 +236,17 @@ p {
 .delay-100 { animation-delay: 100ms; }
 .delay-200 { animation-delay: 200ms; }
 .delay-300 { animation-delay: 300ms; }
+
+/* Target highlighting */
+@keyframes targetGlow {
+  0% { box-shadow: 0 0 0 0px var(--blue-primary); border-color: transparent; }
+  20% { box-shadow: 0 0 0 4px rgba(15, 107, 111, 0.4); border-color: var(--blue-primary); }
+  100% { box-shadow: 0 0 0 0px rgba(15, 107, 111, 0); border-color: var(--border-color); }
+}
+
+.target-glow:target {
+  animation: targetGlow 2s ease-out;
+}
 
 /* Global nav spacing */
 .main-content {
@@ -285,9 +298,10 @@ html {
 }
 
 #implementation,
-#enterprise,
+#integration,
 #testing,
 #training,
-#governance {
-  scroll-margin-top: 100px;
+#governance,
+#microsoft-stack {
+  scroll-margin-top: 80px;
 }
