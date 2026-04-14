@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronRight, PlayCircle, BarChart, ShieldCheck, Database, LayoutTemplate, Briefcase, Clock, Zap, Timer, BarChart3, TrendingUp, Layers, Package, Anchor, Shield, Layout, RefreshCw, BarChart2, Globe, Sparkles, Code, Server, Activity, GraduationCap, CheckCircle2, Users, Headset, Target, UserPlus, ShoppingCart } from 'lucide-react';
+import { ArrowRight, ChevronRight, PlayCircle, BarChart, ShieldCheck, Database, LayoutTemplate, Briefcase, Clock, Zap, Timer, BarChart3, TrendingUp, Layers, Package, Anchor, Shield, Layout, RefreshCw, BarChart2, Globe, Sparkles, Code, Server, Activity, GraduationCap, CheckCircle2, Users, Headset, Target, UserPlus, ShoppingCart, Bot } from 'lucide-react';
 import './Home.css';
 import './ImpactSections.css';
 import { useEffect, useState, useRef } from 'react';
@@ -369,7 +369,7 @@ const Home = () => {
           />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {blogPosts.slice(0, 3).map((post) => (
+            {blogPosts.map((post) => (
               <div 
                 key={post.id} 
                 className="bg-white rounded-xl border border-color p-8 shadow-sm flex flex-col h-full items-start text-left hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
@@ -422,7 +422,7 @@ const Home = () => {
           />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {caseStudiesData.slice(0, 3).map((cs, idx) => (
+            {caseStudiesData.map((cs, idx) => (
               <RevealSection key={cs.id} className={`case-study-card-wrapper delay-${idx * 100 > 500 ? 500 : idx * 100}`}>
                 <div 
                   className="bg-white rounded-xl border border-color p-8 shadow-sm flex flex-col h-full items-start text-left hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
