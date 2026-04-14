@@ -10,6 +10,8 @@ import Certifications from './pages/Certifications';
 import Contact from './pages/Contact';
 import Blogs from './pages/Blogs';
 import BlogPost from './pages/BlogPost';
+import CaseStudyDetail from './pages/CaseStudyDetail';
+import CaseStudies from './pages/CaseStudies';
 import ScrollToTop from './components/ScrollToTop';
 import './App.css';
 
@@ -29,6 +31,8 @@ function App() {
               <Route path="/certifications" element={<Certifications />} />
               <Route path="/blogs" element={<Blogs />} />
               <Route path="/blogs/:slug" element={<BlogPost />} />
+              <Route path="/case-studies" element={<CaseStudies />} />
+              <Route path="/case-studies/:slug" element={<CaseStudyDetail />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
           </main>

@@ -1,0 +1,89 @@
+.case-studies-page.main-content {
+  padding-top: 80px !important;
+}
+
+.case-studies-page {
+  background-color: #fcfcfc;
+  padding-bottom: 4rem;
+}
+
+.case-header {
+  padding-top: 0;
+  padding-bottom: 2.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.portfolio-card {
+  background-color: #ffffff;
+  border: 1px solid #eeeeee;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+}
+
+.portfolio-card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+}
+
+.portfolio-card-description {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 90%;
+}
+
+.btn-pill {
+  display: inline-block;
+  background-color: var(--blue-primary); /* Teal/Dark Green from site theme */
+  color: #ffffff;
+  padding: 0.75rem 2rem;
+  border-radius: 99px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-pill:hover {
+  background-color: var(--blue-dark);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 107, 111, 0.2);
+}
+
+@media (max-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .portfolio-card {
+    padding: 2rem 1.5rem;
+    min-height: auto;
+  }
+}

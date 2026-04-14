@@ -80,18 +80,7 @@ const BlogPost = () => {
           </section>
         </article>
 
-        <footer className="mt-12 pt-12 border-t border-color">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-3">
-              <div className="bg-blue-primary w-10 h-10 rounded-full flex items-center justify-center text-white font-bold">P</div>
-              <div>
-                <p className="text-sm font-bold text-slate-800 m-0">PowerPlatform Geeks</p>
-                <p className="text-xs text-secondary m-0">Expert Insights</p>
-              </div>
-            </div>
-            <Link to="/contact" className="btn btn-primary btn-sm">Get in Touch</Link>
-          </div>
-        </footer>
+
       </div>
     </div>
   );

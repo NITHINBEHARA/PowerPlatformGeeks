@@ -178,3 +178,18 @@
     padding: 3rem 1.5rem;
   }
 }
+
+/* Case Studies Section - Unified Design */
+.case-studies-section {
+  background: var(--surface-color);
+  color: var(--text-primary);
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .case-studies-section {
+    padding: 4rem 0;
+  }
+}

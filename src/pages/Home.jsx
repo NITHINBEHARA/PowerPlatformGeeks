@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronRight, PlayCircle, BarChart, ShieldCheck, Database, LayoutTemplate, Briefcase, Clock, Zap, Timer, BarChart3, TrendingUp, Layers, Package, Anchor, Shield, Layout, RefreshCw, BarChart2, Globe, Sparkles, Code, Server, Activity, GraduationCap } from 'lucide-react';
+import { ArrowRight, ChevronRight, PlayCircle, BarChart, ShieldCheck, Database, LayoutTemplate, Briefcase, Clock, Zap, Timer, BarChart3, TrendingUp, Layers, Package, Anchor, Shield, Layout, RefreshCw, BarChart2, Globe, Sparkles, Code, Server, Activity, GraduationCap, CheckCircle2, Users, Headset, Target, UserPlus, ShoppingCart } from 'lucide-react';
 import './Home.css';
 import './ImpactSections.css';
 import { useEffect, useState, useRef } from 'react';
 import { blogPosts } from '../data/blogData';
+import { caseStudiesData } from '../data/caseStudiesData';
 
 const AnimatedCounter = ({ value, duration = 2000, suffix = "" }) => {
   const [count, setCount] = useState(0);
@@ -277,8 +278,8 @@ const Home = () => {
             </div>
             <div className="product-card">
               <div className="product-icon"><Sparkles size={32} /></div>
-              <h4 className="font-bold">Copilot</h4>
-              <p className="text-sm text-secondary mt-2">Create AI-powered copilots for interaction.</p>
+              <h4 className="font-bold">Copilot/Agents</h4>
+              <p className="text-sm text-secondary mt-2">Create AI Agents for workflows</p>
             </div>
           </div>
         </div>
@@ -411,6 +412,60 @@ const Home = () => {
           </div>
         </div>
       </RevealSection>
+
+      {/* Case Studies Section */}
+      <section id="case-studies" className="case-studies-section section bg-slate-50">
+        <div className="container">
+          <SectionHeader 
+            title={<>Our <span className="text-gradient">Case Studies</span></>}
+            subtitle="Real Solutions. Real Impact."
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {caseStudiesData.slice(0, 3).map((cs, idx) => (
+              <RevealSection key={cs.id} className={`case-study-card-wrapper delay-${idx * 100 > 500 ? 500 : idx * 100}`}>
+                <div 
+                  className="bg-white rounded-xl border border-color p-8 shadow-sm flex flex-col h-full items-start text-left hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                >
+                  <div className="text-[#0f766e] mb-4">
+                    {cs.category === "HR AUTOMATION" && <Users size={32} />}
+                    {cs.category === "IT OPERATIONS" && <Headset size={32} />}
+                    {cs.category === "CRM" && <Target size={32} />}
+                    {cs.category === "INVENTORY" && <Package size={32} />}
+                    {cs.category === "HR" && <UserPlus size={32} />}
+                    {cs.category === "FINANCE" && <ShoppingCart size={32} />}
+                  </div>
+                  
+                  <h4 className="text-xl font-bold text-slate-800 mb-3">{cs.title}</h4>
+                  
+                  <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+                    {cs.description}
+                  </p>
+                  
+                  <div className="pt-4 border-t border-color w-full mb-5">
+                    <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                      Category: {cs.category}
+                    </p>
+                  </div>
+
+                  <div className="w-full flex justify-start">
+                    <Link 
+                      to={`/case-studies/${cs.slug}`} 
+                      className="btn btn-primary group text-sm px-6 py-2.5 rounded-lg inline-flex items-center gap-2 hover:scale-[1.03] transition-all duration-300"
+                    >
+                      View Case Study <ArrowRight size={16} className="transform transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  </div>
+                </div>
+              </RevealSection>
+            ))}
+          </div>
+          
+          <div className="text-center mt-12">
+            <Link to="/case-studies" className="btn btn-secondary bg-white border border-[#d1d5db] text-[#374151] hover:bg-[#ecfdf5] hover:border-[#0f766e] hover:text-[#065f46] shadow-sm">View All Case Studies →</Link>
+          </div>
+        </div>
+      </section>
 
       {/* Industries CTA Banners, Testimonials etc. would go here */}
       <section className="cta-banner-section section">

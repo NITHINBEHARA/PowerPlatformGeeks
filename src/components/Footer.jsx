@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Rocket, Twitter, Linkedin, Github, Mail } from 'lucide-react';
 import logo from '../assets/logo.png';
+import footerLogo from '../assets/footer-logo.png';
 import './Footer.css';
 
 const Footer = () => {
@@ -9,8 +10,8 @@ const Footer = () => {
       <div className="container">
         <div className="footer-grid">
           <div className="footer-brand">
-            <Link to="/" className="brand logo-container" aria-label="PowerPlatformGeeks Home">
-              <img src={logo} alt="PowerPlatform Geeks Logo" className="logo-img" />
+            <Link to="/" className="brand footer-logo-container" aria-label="PowerPlatformGeeks Home">
+              <img src={footerLogo} alt="PowerPlatform Geeks Logo" className="footer-logo-img" />
             </Link>
             <p className="footer-description">
               Enterprise-grade Microsoft Power Platform consulting. 
@@ -23,24 +24,22 @@ const Footer = () => {
             </div>
           </div>
           
-          <div className="footer-links-group">
-            <h4 className="footer-title">Services</h4>
-            <ul className="footer-links">
-              <li><Link to="/services#implementation">Implementation</Link></li>
-              <li><Link to="/services#enterprise">Enterprise Integrations</Link></li>
-              <li><Link to="/services#testing">Testing and QA</Link></li>
-              <li><Link to="/services#training">Training</Link></li>
-              <li><Link to="/services#governance">Governance and Security</Link></li>
-            </ul>
-          </div>
 
           <div className="footer-links-group">
-            <h4 className="footer-title">Company</h4>
-            <ul className="footer-links">
-              <li><Link to="/about">About Us</Link></li>
-              <li><Link to="/industry-expertise">Industries</Link></li>
-              <li><Link to="/contact">Contact</Link></li>
-            </ul>
+            <h4 className="footer-title">Useful Links</h4>
+            <div className="useful-links-grid">
+              <ul className="footer-links">
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/about">About Us</Link></li>
+                <li><Link to="/services">Services</Link></li>
+                <li><Link to="/case-studies">Case Studies</Link></li>
+              </ul>
+              <ul className="footer-links">
+                <li><Link to="/blogs">Blog</Link></li>
+
+                <li><Link to="/contact">Contact Us</Link></li>
+              </ul>
+            </div>
           </div>
 
           <div className="footer-newsletter">

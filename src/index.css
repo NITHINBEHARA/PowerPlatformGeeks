@@ -233,9 +233,22 @@ p {
   animation: fadeIn 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
 }
 
-.delay-100 { animation-delay: 100ms; }
-.delay-200 { animation-delay: 200ms; }
-.delay-300 { animation-delay: 300ms; }
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-100 { transition-delay: 100ms; animation-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; animation-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; animation-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; animation-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; animation-delay: 500ms; }
 
 /* Target highlighting */
 @keyframes targetGlow {
