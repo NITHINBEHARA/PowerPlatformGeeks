@@ -5,6 +5,19 @@ import './ImpactSections.css';
 import { useEffect, useState, useRef } from 'react';
 import { blogPosts } from '../data/blogData';
 import { caseStudiesData } from '../data/caseStudiesData';
+import { publicCaseStudiesData } from '../data/publicCaseStudiesData';
+
+const PublicIcon = ({ name, size = 32 }) => {
+  const icons = {
+    Zap: <Zap size={size} />,
+    RefreshCw: <RefreshCw size={size} />,
+    BarChart3: <BarChart3 size={size} />,
+    Bot: <Bot size={size} />,
+    Globe: <Globe size={size} />,
+    Activity: <Activity size={size} />
+  };
+  return icons[name] || <Globe size={size} />;
+};
 
 const AnimatedCounter = ({ value, duration = 2000, suffix = "" }) => {
   const [count, setCount] = useState(0);
@@ -218,39 +231,46 @@ const Home = () => {
         </div>
       </RevealSection>
 
-      {/* SECTION 4 — Real Customer Success Stories */}
-      <RevealSection className="success-stories-section bg-slate-50">
-        <div className="container">
+      {/* SECTION 4 — Public Case Studies (Symmetrical 2x2 Layout) */}
+      <RevealSection className="public-case-studies-section section bg-slate-50 border-t border-gray-300">
+        <div className="container max-w-5xl mx-auto px-4">
           <SectionHeader
-            title={<>Real Results from <span className="text-gradient">Global Organizations</span></>}
+            title={<>Public <span className="text-gradient">Case Studies</span></>}
             subtitle="Case studies inspired by publicly available Microsoft customer success stories."
           />
-          <div className="success-grid">
-            <div className="success-card">
-              <div className="customer-name">Pacific Gas and Electric</div>
-              <p className="success-impact text-secondary">Saved $75M annually through more than 300 custom Power Platform solutions.</p>
-            </div>
-            <div className="success-card">
-              <div className="customer-name">G and J Pepsi</div>
-              <p className="success-impact text-secondary">Saved $1.5M by digitizing field personnel operations and avoiding external development costs.</p>
-            </div>
-            <div className="success-card">
-              <div className="customer-name">Lerøy Seafood Group</div>
-              <p className="success-impact text-secondary">Achieved $8M annual savings using Power Apps to improve operational reporting accuracy.</p>
-            </div>
-            <div className="success-card">
-              <div className="customer-name">Nsure.com</div>
-              <p className="success-impact text-secondary">Reduced manual processing time by 60% and operational costs by 50% using Copilot in Power Automate.</p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {publicCaseStudiesData.slice(0, 4).map((post, idx) => (
+              <div 
+                key={post.id} 
+                className="bg-white rounded-2xl border border-color p-8 shadow-sm flex flex-col h-full items-start text-left hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5"
+              >
+                <h4 className="text-xl font-bold text-slate-800 mb-3">{post.title}</h4>
+                <p className="text-slate-500 text-base leading-relaxed flex-grow">
+                  {post.description}
+                </p>
+              </div>
+            ))}
           </div>
-          <p className="credibility-note">
+          
+          <p className="text-center text-slate-400 italic text-sm mt-12 mb-4">
             Source: Microsoft Customer Success Stories (Public Case Studies)
           </p>
+
+          <div className="text-center mt-8">
+
+            <Link 
+              to="/case-studies" 
+              className="btn btn-primary group text-base px-10 py-3.5 rounded-xl inline-flex items-center gap-2 hover:scale-[1.02] transition-all duration-300 shadow-md"
+            >
+              Explore All Public Cases <ArrowRight size={20} className="transform transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
+
         </div>
       </RevealSection>
 
       {/* SECTION 5 — Power Platform Suite */}
-      <RevealSection className="suite-section">
+      <RevealSection className="suite-section bg-slate-50 border-t border-gray-300">
         <div className="container">
           <SectionHeader
             title={<>Support for the Entire <span className="text-gradient">Power Platform Suite</span></>}
@@ -286,13 +306,13 @@ const Home = () => {
       </RevealSection>
 
       {/* Services Section */}
-      <section className="services-section section bg-slate-50">
+      <section className="services-section section bg-slate-50 border-t border-gray-300">
         <div className="container">
           <div className="section-header">
             <h2 className="section-title">Our <span className="text-gradient">Services</span></h2>
             <p className="section-subtitle">Comprehensive consulting tailored to your enterprise.</p>
           </div>
-          <div className="grid grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
             {[
               {
                 id: 'implementation',
@@ -339,7 +359,7 @@ const Home = () => {
             ].map((srv, idx) => (
               <div 
                 key={idx} 
-                className="bg-white rounded-xl border border-color p-6 shadow-sm flex flex-col h-full items-start text-left"
+                className="bg-white rounded-xl border border-color p-6 shadow-sm flex flex-col h-full items-start text-left hover:shadow-lg transition-all duration-300"
               >
                 {srv.icon}
                 <h4 className="text-xl font-bold text-slate-800 mb-3">{srv.title}</h4>
@@ -360,8 +380,60 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Latest Blogs Section - Synchronized with Services Style */}
-      <RevealSection className="latest-blogs-section section bg-slate-50">
+      {/* Our Case Studies Section (Restored & Synchronized) */}
+      <RevealSection className="our-case-studies-section section bg-slate-50 border-t border-gray-300">
+        <div className="container max-w-6xl mx-auto px-4">
+          <SectionHeader 
+            title={<>Our <span className="text-gradient">Case Studies</span></>}
+            subtitle="Explore our bespoke success stories and enterprise implementations."
+          />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {caseStudiesData.map((study) => (
+              <div 
+                key={study.id} 
+                className="bg-white rounded-xl border border-color p-8 shadow-sm flex flex-col h-full items-start text-left hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="text-[#0f766e] mb-4">
+                  {study.category === "HR AUTOMATION" && <Users size={32} />}
+                  {study.category === "IT OPERATIONS" && <Headset size={32} />}
+                  {study.category === "CRM" && <Target size={32} />}
+                  {study.category === "INVENTORY" && <Package size={32} />}
+                  {study.category === "HR" && <UserPlus size={32} />}
+                  {study.category === "FINANCE" && <ShoppingCart size={32} />}
+                </div>
+                
+                <h4 className="text-xl font-bold text-slate-800 mb-3">{study.title}</h4>
+                
+                <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+                  {study.description}
+                </p>
+                
+                <div className="pt-4 border-t border-color w-full mb-5">
+                  <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                    Category: {study.category}
+                  </p>
+                </div>
+
+                <div className="w-full flex justify-start">
+                  <Link 
+                    to={`/case-studies/${study.slug}`} 
+                    className="btn btn-primary group text-sm px-6 py-2.5 rounded-lg inline-flex items-center gap-2 hover:scale-[1.03] transition-all duration-300"
+                  >
+                    View Case Study <ArrowRight size={16} className="transform transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="text-center mt-12">
+            <Link to="/case-studies" className="btn btn-secondary bg-white border border-[#d1d5db] text-[#374151] hover:bg-[#ecfdf5] hover:border-[#0f766e] hover:text-[#065f46] shadow-sm">Explore All Case Studies</Link>
+          </div>
+        </div>
+      </RevealSection>
+
+      {/* Latest Blogs Section */}
+      <RevealSection className="latest-blogs-section section bg-slate-50 border-t border-gray-300">
         <div className="container max-w-6xl mx-auto px-4">
           <SectionHeader 
             title={<>Latest <span className="text-[#0f766e]">Insights</span></>}
@@ -413,61 +485,7 @@ const Home = () => {
         </div>
       </RevealSection>
 
-      {/* Case Studies Section */}
-      <section id="case-studies" className="case-studies-section section bg-slate-50">
-        <div className="container">
-          <SectionHeader 
-            title={<>Our <span className="text-gradient">Case Studies</span></>}
-            subtitle="Real Solutions. Real Impact."
-          />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {caseStudiesData.map((cs, idx) => (
-              <RevealSection key={cs.id} className={`case-study-card-wrapper delay-${idx * 100 > 500 ? 500 : idx * 100}`}>
-                <div 
-                  className="bg-white rounded-xl border border-color p-8 shadow-sm flex flex-col h-full items-start text-left hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-                >
-                  <div className="text-[#0f766e] mb-4">
-                    {cs.category === "HR AUTOMATION" && <Users size={32} />}
-                    {cs.category === "IT OPERATIONS" && <Headset size={32} />}
-                    {cs.category === "CRM" && <Target size={32} />}
-                    {cs.category === "INVENTORY" && <Package size={32} />}
-                    {cs.category === "HR" && <UserPlus size={32} />}
-                    {cs.category === "FINANCE" && <ShoppingCart size={32} />}
-                  </div>
-                  
-                  <h4 className="text-xl font-bold text-slate-800 mb-3">{cs.title}</h4>
-                  
-                  <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
-                    {cs.description}
-                  </p>
-                  
-                  <div className="pt-4 border-t border-color w-full mb-5">
-                    <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                      Category: {cs.category}
-                    </p>
-                  </div>
-
-                  <div className="w-full flex justify-start">
-                    <Link 
-                      to={`/case-studies/${cs.slug}`} 
-                      className="btn btn-primary group text-sm px-6 py-2.5 rounded-lg inline-flex items-center gap-2 hover:scale-[1.03] transition-all duration-300"
-                    >
-                      View Case Study <ArrowRight size={16} className="transform transition-transform group-hover:translate-x-1" />
-                    </Link>
-                  </div>
-                </div>
-              </RevealSection>
-            ))}
-          </div>
-          
-          <div className="text-center mt-12">
-            <Link to="/case-studies" className="btn btn-secondary bg-white border border-[#d1d5db] text-[#374151] hover:bg-[#ecfdf5] hover:border-[#0f766e] hover:text-[#065f46] shadow-sm">View All Case Studies →</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Industries CTA Banners, Testimonials etc. would go here */}
+      {/* CTA Banner Area */}
       <section className="cta-banner-section section">
         <div className="container">
           <div className="cta-banner glass p-12 text-center rounded-2xl relative overflow-hidden">

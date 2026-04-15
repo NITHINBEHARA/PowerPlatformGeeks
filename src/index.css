@@ -318,3 +318,170 @@ html {
 #microsoft-stack {
   scroll-margin-top: 80px;
 }
+
+
+/* Premium Public Case Studies Card */
+.public-grid-home, .public-grid-layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .public-grid-home, .public-grid-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.public-card-premium {
+  background: rgba(15, 107, 111, 0.1); 
+  border: 1px solid rgba(43, 179, 184, 0.15);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.public-card-premium:hover {
+  transform: translateY(-5px) scale(1.01);
+  background: rgba(15, 107, 111, 0.15);
+  border-color: var(--accent-color);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.public-card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--accent-color);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.public-card-description {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.public-card-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background: var(--accent-color);
+  transition: height 0.3s ease;
+}
+
+.public-card-premium:hover .public-card-accent {
+  height: 100%;
+}
+
+/* Our Case Studies Premium Card */
+.our-portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .our-portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .our-portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.study-card-premium {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.study-card-premium:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  border-color: var(--blue-primary);
+}
+
+.study-category {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(15, 107, 111, 0.1);
+  color: var(--blue-primary);
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.25rem;
+}
+
+.study-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.study-description {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.btn-details {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--blue-primary);
+  transition: gap 0.3s ease;
+}
+
+.btn-details:hover {
+  gap: 0.75rem;
+  color: var(--blue-dark);
+}
+
+/* Dark Theme Section */
+.dark-theme {
+  background-color: #031314 !important; /* Deeper Teal-Black */
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark-theme::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(15, 107, 111, 0.15), transparent 70%);
+  pointer-events: none;
+}
+
+.dark-theme .section-title {
+  color: #ffffff;
+}
+
+.dark-theme .section-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+}
