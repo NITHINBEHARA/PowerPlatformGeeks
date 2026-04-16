@@ -232,7 +232,7 @@ const Home = () => {
       </RevealSection>
 
       {/* Our Case Studies Section (Restored & Synchronized) */}
-      <RevealSection className="our-case-studies-section section bg-slate-50 border-t border-gray-300">
+      <RevealSection className="our-case-studies-section section bg-slate-50 border-t border-gray-300 pb-0">
         <div className="container max-w-6xl mx-auto px-4">
           <SectionHeader 
             title={<>Our <span className="text-gradient">Case Studies</span></>}
@@ -277,8 +277,41 @@ const Home = () => {
               </div>
             ))}
           </div>
+        </div>
+      </RevealSection>
+
+      {/* SECTION 4 — Public Case Studies (Symmetrical 2x2 Layout) */}
+      <RevealSection className="public-case-studies-section section bg-slate-50 border-t border-gray-300 pt-12">
+        <div className="container max-w-5xl mx-auto px-4">
+          <SectionHeader
+            title={<>Public <span className="text-gradient">Case Studies</span></>}
+            subtitle="Case studies inspired by publicly available Microsoft customer success stories."
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {publicCaseStudiesData.slice(0, 4).map((post, idx) => (
+              <div 
+                key={post.id} 
+                className="bg-white rounded-2xl border border-color p-8 shadow-sm flex flex-col h-full items-start text-left hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5"
+              >
+                <h4 className="text-xl font-bold text-slate-800 mb-3">{post.title}</h4>
+                <p className="text-slate-500 text-base leading-relaxed flex-grow">
+                  {post.description}
+                </p>
+              </div>
+            ))}
+          </div>
+          
+          <p className="text-center text-slate-400 italic text-sm mt-12 mb-4">
+            Source: Microsoft Customer Success Stories (Public Case Studies)
+          </p>
+
           <div className="text-center mt-12">
-            <Link to="/case-studies" className="btn btn-secondary bg-white border border-[#d1d5db] text-[#374151] hover:bg-[#ecfdf5] hover:border-[#0f766e] hover:text-[#065f46] shadow-sm">Explore All Case Studies</Link>
+            <Link 
+              to="/case-studies" 
+              className="btn btn-primary group text-base px-10 py-3.5 rounded-xl inline-flex items-center gap-2 hover:scale-[1.02] transition-all duration-300 shadow-md"
+            >
+              Explore All Case Studies <ArrowRight size={20} className="transform transition-transform group-hover:translate-x-1" />
+            </Link>
           </div>
         </div>
       </RevealSection>
@@ -394,32 +427,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* SECTION 4 — Public Case Studies (Symmetrical 2x2 Layout) */}
-      <RevealSection className="public-case-studies-section section bg-slate-50 border-t border-gray-300">
-        <div className="container max-w-5xl mx-auto px-4">
-          <SectionHeader
-            title={<>Public <span className="text-gradient">Case Studies</span></>}
-            subtitle="Case studies inspired by publicly available Microsoft customer success stories."
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {publicCaseStudiesData.slice(0, 4).map((post, idx) => (
-              <div 
-                key={post.id} 
-                className="bg-white rounded-2xl border border-color p-8 shadow-sm flex flex-col h-full items-start text-left hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5"
-              >
-                <h4 className="text-xl font-bold text-slate-800 mb-3">{post.title}</h4>
-                <p className="text-slate-500 text-base leading-relaxed flex-grow">
-                  {post.description}
-                </p>
-              </div>
-            ))}
-          </div>
-          
-          <p className="text-center text-slate-400 italic text-sm mt-12 mb-4">
-            Source: Microsoft Customer Success Stories (Public Case Studies)
-          </p>
-        </div>
-      </RevealSection>
 
       {/* Latest Blogs Section */}
       <RevealSection className="latest-blogs-section section bg-slate-50 border-t border-gray-300">
