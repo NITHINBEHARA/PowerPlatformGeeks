@@ -231,41 +231,55 @@ const Home = () => {
         </div>
       </RevealSection>
 
-      {/* SECTION 4 — Public Case Studies (Symmetrical 2x2 Layout) */}
-      <RevealSection className="public-case-studies-section section bg-slate-50 border-t border-gray-300">
-        <div className="container max-w-5xl mx-auto px-4">
-          <SectionHeader
-            title={<>Public <span className="text-gradient">Case Studies</span></>}
-            subtitle="Case studies inspired by publicly available Microsoft customer success stories."
+      {/* Our Case Studies Section (Restored & Synchronized) */}
+      <RevealSection className="our-case-studies-section section bg-slate-50 border-t border-gray-300">
+        <div className="container max-w-6xl mx-auto px-4">
+          <SectionHeader 
+            title={<>Our <span className="text-gradient">Case Studies</span></>}
+            subtitle="Explore our bespoke success stories and enterprise implementations."
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {publicCaseStudiesData.slice(0, 4).map((post, idx) => (
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {caseStudiesData.map((study) => (
               <div 
-                key={post.id} 
-                className="bg-white rounded-2xl border border-color p-8 shadow-sm flex flex-col h-full items-start text-left hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5"
+                key={study.id} 
+                className="bg-white rounded-xl border border-color p-8 shadow-sm flex flex-col h-full items-start text-left hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
-                <h4 className="text-xl font-bold text-slate-800 mb-3">{post.title}</h4>
-                <p className="text-slate-500 text-base leading-relaxed flex-grow">
-                  {post.description}
+                <div className="text-[#0f766e] mb-4">
+                  {study.category === "HR AUTOMATION" && <Users size={32} />}
+                  {study.category === "IT OPERATIONS" && <Headset size={32} />}
+                  {study.category === "CRM" && <Target size={32} />}
+                  {study.category === "INVENTORY" && <Package size={32} />}
+                  {study.category === "HR" && <UserPlus size={32} />}
+                  {study.category === "FINANCE" && <ShoppingCart size={32} />}
+                </div>
+                
+                <h4 className="text-xl font-bold text-slate-800 mb-3">{study.title}</h4>
+                
+                <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
+                  {study.description}
                 </p>
+                
+                <div className="pt-4 border-t border-color w-full mb-5">
+                  <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+                    Category: {study.category}
+                  </p>
+                </div>
+
+                <div className="w-full flex justify-start">
+                  <Link 
+                    to={`/case-studies/${study.slug}`} 
+                    className="btn btn-primary group text-sm px-6 py-2.5 rounded-lg inline-flex items-center gap-2 hover:scale-[1.03] transition-all duration-300"
+                  >
+                    View Case Study <ArrowRight size={16} className="transform transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
-          
-          <p className="text-center text-slate-400 italic text-sm mt-12 mb-4">
-            Source: Microsoft Customer Success Stories (Public Case Studies)
-          </p>
-
-          <div className="text-center mt-8">
-
-            <Link 
-              to="/case-studies" 
-              className="btn btn-primary group text-base px-10 py-3.5 rounded-xl inline-flex items-center gap-2 hover:scale-[1.02] transition-all duration-300 shadow-md"
-            >
-              Explore All Public Cases <ArrowRight size={20} className="transform transition-transform group-hover:translate-x-1" />
-            </Link>
+          <div className="text-center mt-12">
+            <Link to="/case-studies" className="btn btn-secondary bg-white border border-[#d1d5db] text-[#374151] hover:bg-[#ecfdf5] hover:border-[#0f766e] hover:text-[#065f46] shadow-sm">Explore All Case Studies</Link>
           </div>
-
         </div>
       </RevealSection>
 
@@ -380,55 +394,30 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Our Case Studies Section (Restored & Synchronized) */}
-      <RevealSection className="our-case-studies-section section bg-slate-50 border-t border-gray-300">
-        <div className="container max-w-6xl mx-auto px-4">
-          <SectionHeader 
-            title={<>Our <span className="text-gradient">Case Studies</span></>}
-            subtitle="Explore our bespoke success stories and enterprise implementations."
+      {/* SECTION 4 — Public Case Studies (Symmetrical 2x2 Layout) */}
+      <RevealSection className="public-case-studies-section section bg-slate-50 border-t border-gray-300">
+        <div className="container max-w-5xl mx-auto px-4">
+          <SectionHeader
+            title={<>Public <span className="text-gradient">Case Studies</span></>}
+            subtitle="Case studies inspired by publicly available Microsoft customer success stories."
           />
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {caseStudiesData.map((study) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {publicCaseStudiesData.slice(0, 4).map((post, idx) => (
               <div 
-                key={study.id} 
-                className="bg-white rounded-xl border border-color p-8 shadow-sm flex flex-col h-full items-start text-left hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                key={post.id} 
+                className="bg-white rounded-2xl border border-color p-8 shadow-sm flex flex-col h-full items-start text-left hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5"
               >
-                <div className="text-[#0f766e] mb-4">
-                  {study.category === "HR AUTOMATION" && <Users size={32} />}
-                  {study.category === "IT OPERATIONS" && <Headset size={32} />}
-                  {study.category === "CRM" && <Target size={32} />}
-                  {study.category === "INVENTORY" && <Package size={32} />}
-                  {study.category === "HR" && <UserPlus size={32} />}
-                  {study.category === "FINANCE" && <ShoppingCart size={32} />}
-                </div>
-                
-                <h4 className="text-xl font-bold text-slate-800 mb-3">{study.title}</h4>
-                
-                <p className="text-slate-500 text-sm leading-relaxed mb-6 flex-grow">
-                  {study.description}
+                <h4 className="text-xl font-bold text-slate-800 mb-3">{post.title}</h4>
+                <p className="text-slate-500 text-base leading-relaxed flex-grow">
+                  {post.description}
                 </p>
-                
-                <div className="pt-4 border-t border-color w-full mb-5">
-                  <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
-                    Category: {study.category}
-                  </p>
-                </div>
-
-                <div className="w-full flex justify-start">
-                  <Link 
-                    to={`/case-studies/${study.slug}`} 
-                    className="btn btn-primary group text-sm px-6 py-2.5 rounded-lg inline-flex items-center gap-2 hover:scale-[1.03] transition-all duration-300"
-                  >
-                    View Case Study <ArrowRight size={16} className="transform transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </div>
               </div>
             ))}
           </div>
-          <div className="text-center mt-12">
-            <Link to="/case-studies" className="btn btn-secondary bg-white border border-[#d1d5db] text-[#374151] hover:bg-[#ecfdf5] hover:border-[#0f766e] hover:text-[#065f46] shadow-sm">Explore All Case Studies</Link>
-          </div>
+          
+          <p className="text-center text-slate-400 italic text-sm mt-12 mb-4">
+            Source: Microsoft Customer Success Stories (Public Case Studies)
+          </p>
         </div>
       </RevealSection>
 
@@ -436,8 +425,7 @@ const Home = () => {
       <RevealSection className="latest-blogs-section section bg-slate-50 border-t border-gray-300">
         <div className="container max-w-6xl mx-auto px-4">
           <SectionHeader 
-            title={<>Latest <span className="text-[#0f766e]">Insights</span></>}
-            subtitle="Premium tutorials and strategy from the Power Platform front lines."
+            title="Blogs"
           />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

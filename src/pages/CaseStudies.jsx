@@ -64,40 +64,8 @@ const CaseStudies = () => {
 
   return (
     <div className="case-studies-page main-content">
-      {/* Header */}
-      <header className="case-header container text-center pt-16">
-        <h1 className="section-title text-gradient">Case Studies</h1>
-        <p className="section-subtitle">Detailed explorations of how Power Platform is transforming organizations worldwide and through our expert implementations.</p>
-      </header>
-
-      {/* Section 1: Public Case Studies (Symmetrical 2x2 Layout) */}
-      <section className="section bg-slate-50 border-t border-gray-200">
-        <div className="container max-w-5xl mx-auto px-4">
-          <div className="section-header text-center mb-12">
-            <h2 className="section-title">Public <span className="text-gradient">Case Studies</span></h2>
-            <p className="section-subtitle">Case studies inspired by publicly available Microsoft customer success stories</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {publicCaseStudiesData.map((cs, idx) => (
-              <div 
-                key={cs.id} 
-                ref={addToRefs}
-                className={`bg-white rounded-2xl border border-color p-8 shadow-sm flex flex-col h-full items-start text-left hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 reveal-on-scroll delay-${(idx % 2 + 1) * 100}`}
-              >
-                <h4 className="text-xl font-bold text-slate-800 mb-3">{cs.title}</h4>
-                <p className="text-slate-500 text-base leading-relaxed flex-grow">{cs.description}</p>
-              </div>
-            ))}
-          </div>
-          <p className="text-center text-slate-400 italic text-sm mt-12">
-            Source: Microsoft Customer Success Stories (Public Case Studies)
-          </p>
-        </div>
-      </section>
-
-      {/* Section 2: Our Case Studies */}
-      <section className="section bg-slate-50 border-t border-gray-200">
+      {/* Our Case Studies */}
+      <section className="section bg-slate-50">
         <div className="container">
           <div className="section-header text-center mb-12">
             <h2 className="section-title">Our <span className="text-gradient">Case Studies</span></h2>
@@ -132,6 +100,32 @@ const CaseStudies = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Public Case Studies (Symmetrical 2x2 Layout) */}
+      <section className="section bg-slate-50 border-t border-gray-200">
+        <div className="container max-w-5xl mx-auto px-4">
+          <div className="section-header text-center mb-12">
+            <h2 className="section-title">Public <span className="text-gradient">Case Studies</span></h2>
+            <p className="section-subtitle">Case studies inspired by publicly available Microsoft customer success stories</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {publicCaseStudiesData.map((cs, idx) => (
+              <div 
+                key={cs.id} 
+                ref={addToRefs}
+                className={`bg-white rounded-2xl border border-color p-8 shadow-sm flex flex-col h-full items-start text-left hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 reveal-on-scroll delay-${(idx % 2 + 1) * 100}`}
+              >
+                <h4 className="text-xl font-bold text-slate-800 mb-3">{cs.title}</h4>
+                <p className="text-slate-500 text-base leading-relaxed flex-grow">{cs.description}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-slate-400 italic text-sm mt-12">
+            Source: Microsoft Customer Success Stories (Public Case Studies)
+          </p>
         </div>
       </section>
     </div>
