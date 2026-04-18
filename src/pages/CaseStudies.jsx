@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronRight, CheckCircle2, Zap, RefreshCw, BarChart3, Bot, Globe, Activity, Users, Headset, Target, Package, UserPlus, ShoppingCart } from 'lucide-react';
+import { ArrowRight, ChevronRight, CheckCircle2, Zap, RefreshCw, BarChart3, Bot, Globe, Activity, Database } from 'lucide-react';
 import { caseStudiesData } from '../data/caseStudiesData';
 import { publicCaseStudiesData } from '../data/publicCaseStudiesData';
 import './CaseStudies.css';
@@ -19,14 +19,14 @@ const PublicIcon = ({ name, size = 32 }) => {
 
 const OurIcon = ({ category, size = 32 }) => {
   const icons = {
-    "HR AUTOMATION": <Users size={size} />,
-    "IT OPERATIONS": <Headset size={size} />,
-    "CRM": <Target size={size} />,
-    "INVENTORY": <Package size={size} />,
-    "HR": <UserPlus size={size} />,
-    "FINANCE": <ShoppingCart size={size} />
+    "DATA MODERNIZATION": <Database size={size} />,
+    "PORTAL DEVELOPMENT": <Globe size={size} />,
+    "AI + POWER APPS": <Bot size={size} />,
+    "AUTOMATION": <Zap size={size} />,
+    "CLOUD MIGRATION": <RefreshCw size={size} />,
+    "DATA MIGRATION": <Activity size={size} />
   };
-  return icons[category] || <Layout size={size} />;
+  return icons[category] || <Globe size={size} />;
 };
 
 const CaseStudies = () => {
@@ -69,7 +69,7 @@ const CaseStudies = () => {
         <div className="container">
           <div className="section-header text-center mb-12">
             <h2 className="section-title">Our <span className="text-gradient">Case Studies</span></h2>
-            <p className="section-subtitle">Bespoke solutions delivered by our team of Power Platform experts.</p>
+            <p className="section-subtitle">Real-world solutions delivered for global organizations.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -91,10 +91,10 @@ const CaseStudies = () => {
 
                 <div className="w-full flex justify-start">
                   <Link 
-                    to={`/case-studies/${study.slug}`} 
+                    to={`/case-studies/${study.id}`} 
                     className="btn btn-primary group text-sm px-6 py-2.5 rounded-lg inline-flex items-center gap-2 hover:scale-[1.03] transition-all duration-300"
                   >
-                    View Details <ArrowRight size={16} className="transform transition-transform group-hover:translate-x-1" />
+                    View Case Study <ArrowRight size={16} className="transform transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>
               </div>

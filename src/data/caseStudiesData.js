@@ -1,134 +1,194 @@
 export const caseStudiesData = [
   {
-    id: 1,
-    title: "HR Leave Management System",
-    slug: "hr-leave-management",
-    category: "HR AUTOMATION",
-    description: "Automated leave requests and approvals replacing manual email-based processes.",
-    subtitle: "Automating leave requests and approvals with Power Platform",
-    preProject: [
-      "Leave requests were handled via email & scattered Excel sheets",
-      "No clear approval hierarchy or tracking for pending requests",
-      "Manual calculation of remaining leave balances by HR"
+    id: "lanxess-modernization",
+    title: "LANXESS – Legacy Access Database Modernization",
+    description: "Migrated legacy Access databases to Power Platform with Dataverse for centralized data and real-time reporting.",
+    category: "DATA MODERNIZATION",
+    client: "LANXESS Chemical Manufacturing",
+    duration: "Jan 2025 – Nov 2025",
+    role: "Technical Architect & Developer",
+    teamSize: "6",
+    technologies: ["Power Apps", "Dataverse", "Power Automate RPA", "Power BI", "ETL Dataflows", "Azure"],
+    preProject: "The organization relied on aging Microsoft Access databases to manage business-critical operations across multiple manufacturing units. Data was fragmented across local files, accessible only by limited users, with no central visibility or audit trail.",
+    challenges: [
+      "No scalable data infrastructure — Access databases were reaching capacity limits with growing business data.",
+      "Manual data transfer between on-premises SQL Server and business applications consumed significant staff time.",
+      "Lack of centralized reporting meant decision-makers had no real-time visibility into issue tracking, approvals, or operational metrics.",
+      "Security and access control was inadequate — no row-level permissions or data governance in place.",
+      "High infrastructure and maintenance overhead due to legacy system sprawl across business units."
     ],
-    background: "The organization faced significant delays in leave approvals and frequent errors in tracking employee balances. Managers lacked visibility into team availability, leading to scheduling conflicts. A centralized, transparent system was needed to streamline the entire process from request to reporting.",
-    implementation: "We built a custom Canvas Power App integrated with Dataverse for secure data storage. Power Automate workflows were implemented for multi-level manager approvals and automatic balance deductions. A Power BI dashboard was added for HR to monitor leave trends across the company.",
-    technologies: ["Power Apps", "Power Automate", "Dataverse", "Power BI"],
+    implementation: [
+      "Led end-to-end migration from Access DB to Microsoft Power Platform with Dataverse as the centralized data layer.",
+      "Designed optimized Dataverse table structures and scalable data models to support multi-unit operations.",
+      "Built ETL pipelines using Power Platform Dataflows for transformation and structured data loading.",
+      "Implemented RPA via Power Automate to automate Dataverse-to-on-prem SQL Server transfers.",
+      "Enforced data security using row/column-level permissions and DLP policies.",
+      "Delivered Power BI dashboards for issue lifecycle and approvals tracking."
+    ],
     benefits: [
-      "70% faster approval cycles through automated notifications",
-      "Zero errors in leave balance tracking and calculations",
-      "Real-time visibility for managers into team availability",
-      "Improved employee satisfaction with transparent application status"
+      "25%+ Cost Reduction",
+      "Centralized Multi-unit Data",
+      "Real-time BI Reporting",
+      "Automated Data Transfers"
     ]
   },
   {
-    id: 2,
-    title: "IT Helpdesk Automation",
-    slug: "it-helpdesk-automation",
-    category: "IT OPERATIONS",
-    description: "Centralized ticketing system with automated assignment and SLA tracking.",
-    subtitle: "Centralized ticket tracking and automated SLA management",
-    preProject: [
-      "Support tickets received via various channels (email, WhatsApp, phone)",
-      "Lack of centralized tracking and ticket ownership",
-      "No mechanism for monitoring Service Level Agreements (SLAs)"
+    id: "ega-vendor-portal",
+    title: "EGA – Vendor Management Portal Transformation",
+    description: "Rebuilt SharePoint 2016 portal into secure Power Pages B2B platform with governance and automation.",
+    category: "PORTAL DEVELOPMENT",
+    client: "Emirates Global Aluminum",
+    duration: "Jan 2021 – Dec 2024",
+    role: "Technical Architect & Developer",
+    teamSize: "5",
+    technologies: ["Power Pages", "Power Automate", "CoE Toolkit", "SharePoint Online", "Azure", "PCF"],
+    preProject: "Legacy SharePoint 2016 vendor portal with Form Based Authentication and uncontrolled Azure AD guest access.",
+    challenges: [
+      "Outdated authentication mechanisms",
+      "Azure AD guest user sprawl",
+      "No governance visibility",
+      "High maintenance from timer jobs",
+      "Uncontrolled vendor data access"
     ],
-    background: "The IT support team was overwhelmed by untracked requests, often missing critical issues due to the lack of a formal system. Users were frustrated by the slow response times and lack of updates. The goal was to implement a unified helpdesk solution that prioritized tickets and tracked resolution times.",
-    implementation: "A Power Apps portal was created for users to submit and track tickets. We used Power Automate to automatically categorize and assign tickets based on priority and department. Automated escalations were configured to ensure SLAs were met, and a dashboard provided real-time metrics on team performance.",
-    technologies: ["Power Apps", "Power Automate", "Dataverse", "Outlook Integration"],
+    implementation: [
+      "Re-architected portal using Power Pages with B2B authentication",
+      "Removed guest accounts and implemented secure login",
+      "Integrated SharePoint document repository",
+      "Implemented PCF components",
+      "Deployed CoE Toolkit for governance",
+      "Migrated timer jobs to Azure + Power Automate"
+    ],
     benefits: [
-      "80% reduction in missed or forgotten support tickets",
-      "SLA compliance increased from 60% to 95%",
-      "Real-time ticket status tracking for all employees",
-      "Data-driven insights to identify recurring technical issues"
+      "35% Faster Turnaround",
+      "Secure B2B Portal",
+      "Zero Guest User Sprawl",
+      "Improved Governance Visibility"
     ]
   },
   {
-    id: 3,
-    title: "Sales CRM Lite",
-    slug: "sales-crm-lite",
-    category: "CRM",
-    description: "Streamlined lead tracking and improved sales pipeline visibility.",
-    subtitle: "Streamlining lead pipeline and sales activities with Model-Driven Apps",
-    preProject: [
-      "Leads and customer data managed in disconnected Excel files",
-      "No visibility into the sales pipeline or stage of various deals",
-      "Missing follow-ups due to lack of automated reminders"
+    id: "ega-qr-app",
+    title: "EGA – QR Code Document Access App",
+    description: "Built Power Apps with AI Builder for real-time document access via QR scanning.",
+    category: "AI + POWER APPS",
+    client: "Emirates Global Aluminum",
+    duration: "2021 – 2024",
+    role: "Solo Developer",
+    teamSize: "1",
+    technologies: ["Power Apps", "AI Builder", "SharePoint Online", "Azure Web API"],
+    preProject: "Workers relied on paper-based lookups or desktop searches to access critical documents.",
+    challenges: [
+      "Slow paper-based document retrieval",
+      "No mobile-friendly access",
+      "Poor version control",
+      "No integration with equipment"
     ],
-    background: "The sales team struggled with data silos and manual reporting, making it difficult to forecast revenue or track team activity. Valuable leads were slipping through the cracks without a structured follow-up process. A lightweight, scalable CRM was required to centralize data and automate sales tasking.",
-    implementation: "We deployed a Model-Driven Power App leveraging the common data model in Dataverse. This provided a structured environment for tracking Leads, Accounts, and Opportunities. Business Process Flows were implemented to guide sales reps through the sales stages, and Power Automate sent daily task reminders.",
-    technologies: ["Model-Driven Apps", "Dataverse", "Power Automate", "Excel Integration"],
+    implementation: [
+      "Built Power Apps canvas app with QR scanner",
+      "Connected QR codes to SharePoint documents",
+      "Integrated Azure API for real-time lookup",
+      "Optimized licensing and environments",
+      "Delivered full solution independently"
+    ],
     benefits: [
-      "50% improvement in lead-to-opportunity conversion rates",
-      "Full visibility into the sales pipeline for management",
-      "Centralized customer data accessible across the organization",
-      "Consistent sales process followed by all team members"
+      "Real-time Document Access",
+      "Zero Paper Usage",
+      "Faster Retrieval",
+      "Improved Worker Safety"
     ]
   },
   {
-    id: 4,
-    title: "Inventory Management System",
-    slug: "inventory-management",
-    category: "INVENTORY",
-    description: "Real-time stock tracking with barcode integration and alerts.",
-    subtitle: "Real-time stock tracking with barcode scanning and automated alerts",
-    preProject: [
-      "Manual counting and paper-based inventory tracking",
-      "Frequent stockouts and overstocking due to data lag",
-      "High human error rate in recording asset movements"
+    id: "deutsche-bank-automation",
+    title: "Deutsche Bank – External User Automation",
+    description: "Automated external user onboarding using Power Apps, Azure Functions, and Graph API.",
+    category: "AUTOMATION",
+    client: "Deutsche Bank",
+    duration: "Jun 2025 – Nov 2025",
+    role: "Senior Lead Developer",
+    teamSize: "1",
+    technologies: ["Power Apps", "Power Automate", "Azure Functions", "Microsoft Graph API", "Power BI"],
+    preProject: "Manual onboarding of external users with no approval workflow or audit tracking.",
+    challenges: [
+      "Manual domain whitelisting",
+      "No structured approval workflow",
+      "No audit trail",
+      "Manual invitation emails",
+      "No reporting visibility"
     ],
-    background: "A fast-moving warehouse needed a modern way to track assets and inventory movements. The legacy paper-based system resulted in inaccurate stock levels and delayed reordering. The business needed a mobile-first solution that could capture data at the point of action and provide real-time alerts.",
-    implementation: "A mobile Power App was developed for warehouse staff, utilizing built-in barcode scanning capabilities to log stock in and out. Power Automate triggers low-stock alerts sent directly to procurement via Teams. Dataverse serves as the real-time source of truth for all inventory levels.",
-    technologies: ["Power Apps Mobile", "Barcode Scanner", "Dataverse", "Teams Integration"],
+    implementation: [
+      "Built Power Apps interface for requests",
+      "Used Azure Functions + Graph API for automation",
+      "Implemented approval workflows",
+      "Created Power BI reports",
+      "Used CoE Toolkit for governance"
+    ],
     benefits: [
-      "90% reduction in inventory reconciliation errors",
-      "Real-time stock visibility across multiple locations",
-      "Automated procurement alerts reduced stockout incidents by 85%",
-      "Paperless operations improved warehouse staff efficiency"
+      "Fully Automated Onboarding",
+      "Reduced Manual Effort",
+      "Audit-ready Compliance",
+      "Real-time Reporting"
     ]
   },
   {
-    id: 5,
-    title: "Employee Onboarding Portal",
-    slug: "employee-onboarding",
-    category: "HR",
-    description: "Automated onboarding workflows with document tracking and task management.",
-    subtitle: "Digitizing the employee journey from offer letter to first day",
-    preProject: [
-      "Manual document collection and email-based communication",
-      "Delays in IT setup and equipment provisioning for new hires",
-      "Inconsistent onboarding experience for employees"
+    id: "polaris-infopath",
+    title: "Polaris – InfoPath Modernization",
+    description: "Migrated InfoPath forms to Power Apps enabling cloud access and automation.",
+    category: "CLOUD MIGRATION",
+    client: "Polaris, US",
+    duration: "May 2019 – Dec 2019",
+    role: "Sr. Technical Lead",
+    teamSize: "4",
+    technologies: ["Power Apps", "Power Automate", "SharePoint Online", "PowerShell"],
+    preProject: "InfoPath forms tied to on-prem SharePoint with no remote access.",
+    challenges: [
+      "Limited remote accessibility",
+      "Deprecated technology",
+      "Complex migration",
+      "No documentation",
+      "Manual deployments"
     ],
-    background: "Rapid hiring growth made the manual onboarding process unsustainable. New employees faced delays in getting access to systems, affecting their first-week productivity. The company needed a unified portal to collect documents, trigger setup tasks, and provide a welcoming experience for new hires.",
-    implementation: "We built a Power Pages external portal for new hires to upload documents and complete profiles. Power Automate orchestrated back-end tasks, such as creating IT accounts in Entra ID and notifying managers. A Canvas App allowed HR to monitor the progress of all pending onboardings.",
-    technologies: ["Power Pages", "Power Automate", "Dataverse", "Azure AD (Entra ID)"],
+    implementation: [
+      "Rebuilt forms in Power Apps",
+      "Migrated data to SharePoint Online",
+      "Created HLD & LLD",
+      "Automated deployment using PowerShell"
+    ],
     benefits: [
-      "Onboarding time reduced by 60% through automation",
-      "100% equipment readiness for all new hires on day one",
-      "Significant reduction in HR manual administrative time",
-      "Higher employee NPS score for the onboarding experience"
+      "Cloud Accessibility",
+      "InfoPath Retired",
+      "Documented Architecture",
+      "Automated Deployment"
     ]
   },
   {
-    id: 6,
-    title: "Procurement Approval System",
-    slug: "procurement-system",
-    category: "FINANCE",
-    description: "Controlled procurement with multi-level approvals and budget tracking.",
-    subtitle: "Budget-aware request system with complex multi-level approvals",
-    preProject: [
-      "Purchasing requests made via email with no budget validation",
-      "Approval bottlenecks due to lack of visibility for executives",
-      "Difficulty in auditing historical procurement decisions"
+    id: "caterpillar-migration",
+    title: "Caterpillar – Lotus Notes Migration",
+    description: "Modernized Lotus Notes into SharePoint Online with automated pipelines and reporting.",
+    category: "DATA MIGRATION",
+    client: "Caterpillar",
+    duration: "Jul 2020 – Dec 2020",
+    role: "Technical Lead",
+    teamSize: "4",
+    technologies: ["Power Automate", "Power BI", "SharePoint Online", "Azure Blob Storage", "React SPFx"],
+    preProject: "Legacy Lotus Notes system with siloed data and no reporting.",
+    challenges: [
+      "Legacy platform limitations",
+      "Data silos",
+      "No reporting visibility",
+      "Complex migration",
+      "External data integration"
     ],
-    background: "Finance struggled to control spending as procurement requests were often approved without checking against remaining budgets. The manual approval chain was slow and lacked transparency. The business required a system that integrated budget records with the request process and provided clear audit trails.",
-    implementation: "A custom Canvas Power App was developed for request submission, integrated with a SQL-based budget table. Power Automate handles complex, conditional approval routing based on request value and department. A Power BI report provides finance with real-time spend vs. budget analysis.",
-    technologies: ["Power Apps", "Power Automate", "Power BI", "SQL Server / Dataverse"],
+    implementation: [
+      "Designed SharePoint schema",
+      "Built Power Automate pipelines",
+      "Integrated Azure Blob Storage",
+      "Developed SPFx UI",
+      "Created Power BI dashboards"
+    ],
     benefits: [
-      "35% faster procurement cycle times",
-      "Strict budget control with zero overspending incidents",
-      "Complete audit trail for every purchase made",
-      "Enhanced spend visibility for executive leadership"
+      "Cloud Migration Completed",
+      "Automated Data Pipelines",
+      "Real-time Reporting",
+      "Secure Data Integration"
     ]
   }
 ];

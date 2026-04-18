@@ -246,12 +246,12 @@ const Home = () => {
                 className="bg-white rounded-xl border border-color p-8 shadow-sm flex flex-col h-full items-start text-left hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="text-[#0f766e] mb-4">
-                  {study.category === "HR AUTOMATION" && <Users size={32} />}
-                  {study.category === "IT OPERATIONS" && <Headset size={32} />}
-                  {study.category === "CRM" && <Target size={32} />}
-                  {study.category === "INVENTORY" && <Package size={32} />}
-                  {study.category === "HR" && <UserPlus size={32} />}
-                  {study.category === "FINANCE" && <ShoppingCart size={32} />}
+                  {study.category === "DATA MODERNIZATION" && <Database size={32} />}
+                  {study.category === "PORTAL DEVELOPMENT" && <Globe size={32} />}
+                  {study.category === "AI + POWER APPS" && <Bot size={32} />}
+                  {study.category === "AUTOMATION" && <Zap size={32} />}
+                  {study.category === "CLOUD MIGRATION" && <RefreshCw size={32} />}
+                  {study.category === "DATA MIGRATION" && <Activity size={32} />}
                 </div>
                 
                 <h4 className="text-xl font-bold text-slate-800 mb-3">{study.title}</h4>
@@ -268,7 +268,7 @@ const Home = () => {
 
                 <div className="w-full flex justify-start">
                   <Link 
-                    to={`/case-studies/${study.slug}`} 
+                    to={`/case-studies/${study.id}`} 
                     className="btn btn-primary group text-sm px-6 py-2.5 rounded-lg inline-flex items-center gap-2 hover:scale-[1.03] transition-all duration-300"
                   >
                     View Case Study <ArrowRight size={16} className="transform transition-transform group-hover:translate-x-1" />
