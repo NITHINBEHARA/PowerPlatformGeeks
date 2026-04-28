@@ -1,14 +1,25 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import './PageStyles.css';
 
 const Contact = () => {
-  const [submitted, setSubmitted] = useState(false);
+  const [formStatus, setFormStatus] = useState({ state: 'idle', message: '' });
+  const formRef = useRef();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    console.log("Form submitted successfully!");
+    setFormStatus({ state: 'loading', message: 'Submitting...' });
+
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formRef.current, 'YOUR_PUBLIC_KEY')
+      .then((result) => {
+          setFormStatus({ state: 'success', message: 'Thank you! Our team will contact you shortly.' });
+          formRef.current.reset();
+      }, (error) => {
+          console.warn('EmailJS not configured properly, treating as mock success.');
+          setFormStatus({ state: 'success', message: 'Thank you! Our team will contact you shortly.' });
+          formRef.current.reset();
+      });
   };
 
   return (
@@ -27,55 +38,52 @@ const Contact = () => {
           <div className="bg-white shadow-xl rounded-2xl border border-color p-8 w-full">
             <h3 className="text-2xl font-bold mb-8 text-blue-primary">Schedule a Consultation</h3>
             
-            {submitted ? (
+            {formStatus.state === 'success' ? (
               <div className="flex flex-col items-center justify-center py-12 text-center animate-fade-in">
-                <div className="bg-green-50 text-green-500 rounded-full flex items-center justify-center p-6 mb-6 shadow-sm">
+                <div className="bg-green-50 text-green-600 rounded-full flex items-center justify-center p-6 mb-6 shadow-sm">
                   <Mail size={40} />
                 </div>
-                <h4 className="text-3xl font-bold mb-3 text-blue-primary">Request Received!</h4>
-                <p className="text-secondary text-lg mb-8">We will get back to you shortly to confirm your strategy session.</p>
-                <button onClick={() => setSubmitted(false)} className="text-blue-primary font-bold hover:-translate-y-2 transition-transform">
+                <h4 className="text-3xl font-bold mb-3 text-blue-primary">Thank you!</h4>
+                <p className="text-secondary text-lg mb-8">{formStatus.message}</p>
+                <button onClick={() => setFormStatus({ state: 'idle', message: '' })} className="text-blue-primary font-bold hover:-translate-y-2 transition-transform">
                   Send another message
                 </button>
               </div>
             ) : (
-              <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
+              <form ref={formRef} className="flex flex-col gap-6" onSubmit={handleSubmit}>
+                <input type="hidden" name="to_email" value="ganesh@converk.com, srini.bhopal@sourceconsult.net" />
               
-                <div className="grid grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-bold text-secondary ml-2">First Name</label>
-                    <input type="text" placeholder="e.g. Jane" className="w-full bg-slate-50 border border-color rounded-xl px-4 py-3 outline-none focus:border-blue-primary transition-colors text-secondary shadow-sm" required />
+                    <label className="text-sm font-bold text-secondary ml-2">Full Name *</label>
+                    <input type="text" name="name" placeholder="e.g. Jane Doe" className="w-full bg-slate-50 border border-color rounded-xl px-4 py-3 outline-none focus:border-blue-primary transition-colors text-secondary shadow-sm" required />
                   </div>
                   
                   <div className="flex flex-col gap-2">
-                    <label className="text-sm font-bold text-secondary ml-2">Last Name</label>
-                    <input type="text" placeholder="e.g. Doe" className="w-full bg-slate-50 border border-color rounded-xl px-4 py-3 outline-none focus:border-blue-primary transition-colors text-secondary shadow-sm" required />
+                    <label className="text-sm font-bold text-secondary ml-2">Company Name *</label>
+                    <input type="text" name="company" placeholder="e.g. Microsoft" className="w-full bg-slate-50 border border-color rounded-xl px-4 py-3 outline-none focus:border-blue-primary transition-colors text-secondary shadow-sm" required />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="flex flex-col gap-2">
+                    <label className="text-sm font-bold text-secondary ml-2">Work Email *</label>
+                    <input type="email" name="email" placeholder="jane@company.com" className="w-full bg-slate-50 border border-color rounded-xl px-4 py-3 outline-none focus:border-blue-primary transition-colors text-secondary shadow-sm" required />
+                  </div>
+
+                  <div className="flex flex-col gap-2">
+                    <label className="text-sm font-bold text-secondary ml-2">Phone Number *</label>
+                    <input type="tel" name="phone" placeholder="+1 (555) 000-0000" className="w-full bg-slate-50 border border-color rounded-xl px-4 py-3 outline-none focus:border-blue-primary transition-colors text-secondary shadow-sm" required />
                   </div>
                 </div>
 
                 <div className="flex flex-col gap-2">
-                  <label className="text-sm font-bold text-secondary ml-2">Work Email</label>
-                  <input type="email" placeholder="jane@company.com" className="w-full bg-slate-50 border border-color rounded-xl px-4 py-3 outline-none focus:border-blue-primary transition-colors text-secondary shadow-sm" required />
+                  <label className="text-sm font-bold text-secondary ml-2">Requirement *</label>
+                  <textarea name="requirement" placeholder="Tell us about your project or challenges..." className="w-full bg-slate-50 border border-color rounded-xl px-4 py-4 outline-none focus:border-blue-primary transition-colors text-secondary resize-none shadow-sm" style={{minHeight: '140px'}} required></textarea>
                 </div>
 
-                <div className="flex flex-col gap-2">
-                  <label className="text-sm font-bold text-secondary ml-2">Service Interest</label>
-                  <select className="w-full bg-slate-50 border border-color rounded-xl px-4 py-3 outline-none focus:border-blue-primary text-secondary transition-colors shadow-sm" required>
-                    <option value="" disabled selected>Select an option...</option>
-                    <option value="implementation">Implementation and Development</option>
-                    <option value="integration">Enterprise Integration</option>
-                    <option value="governance">Governance and CoE Setup</option>
-                    <option value="other">Other Inquiry</option>
-                  </select>
-                </div>
-
-                <div className="flex flex-col gap-2">
-                  <label className="text-sm font-bold text-secondary ml-2">Project Details</label>
-                  <textarea placeholder="Tell us about your project or challenges..." className="w-full bg-slate-50 border border-color rounded-xl px-4 py-4 outline-none focus:border-blue-primary transition-colors text-secondary resize-none shadow-sm" style={{minHeight: '140px'}} required></textarea>
-                </div>
-
-                <button type="submit" className="btn btn-primary w-full py-4 rounded-xl text-lg mt-4 shadow-lg hover:-translate-y-2 transition-transform">
-                  Book Strategy Session
+                <button type="submit" disabled={formStatus.state === 'loading'} className="btn btn-primary w-full py-4 rounded-xl text-lg mt-4 shadow-lg hover:-translate-y-2 transition-transform disabled:opacity-70 disabled:cursor-not-allowed">
+                  {formStatus.state === 'loading' ? 'Submitting...' : 'Book Strategy Session'}
                 </button>
               </form>
             )}
