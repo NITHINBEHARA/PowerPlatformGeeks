@@ -80,22 +80,35 @@ const Navbar = () => {
     }
   };
 
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Services', path: '/services' },
-    { name: 'Case Studies', path: '/case-studies' },
-    { name: 'Industry Expertise', path: '/industry-expertise' },
-    { name: 'Certifications', path: '/certifications' },
-    { name: 'Blogs', path: '/blogs' },
-    { name: 'Contact', path: '/contact' }
-  ];
+  const isServicesPage = location.pathname === '/services';
+
+  const navLinks = isServicesPage
+    ? []
+    : [
+        { name: 'Home', path: '/' },
+        { name: 'About', path: '/about' },
+        { name: 'Services', path: '/services' },
+        { name: 'Case Studies', path: '/case-studies' },
+        { name: 'Industry Expertise', path: '/industry-expertise' },
+        { name: 'Certifications', path: '/certifications' },
+        { name: 'Blogs', path: '/blogs' },
+        { name: 'Contact', path: '/contact' }
+      ];
 
   return (
     <nav className={`navbar ${scrolled ? 'glass navbar-scrolled' : ''}`}>
       <div className="container nav-container">
 
-        <Link to="/" className="brand logo-container" aria-label="PowerPlatformGeeks Home">
+        <Link 
+          to={isServicesPage ? "/services#lead-form" : "/"} 
+          className="brand logo-container" 
+          aria-label="PowerPlatformGeeks Home"
+          onClick={(e) => {
+            if (isServicesPage) {
+              handleLinkClick(e, '/services#lead-form');
+            }
+          }}
+        >
           <img src={logo} alt="PowerPlatform Geeks Logo" className="logo-img" />
         </Link>
 
@@ -104,7 +117,7 @@ const Navbar = () => {
             <Link
               key={link.name}
               to={link.path}
-              className={`nav-link ${isLinkActive(link.path) ? 'active' : ''}`}
+              className={link.isCta ? 'btn btn-primary nav-cta-btn' : `nav-link ${isLinkActive(link.path) ? 'active' : ''}`}
               onClick={(e) => handleLinkClick(e, link.path)}
             >
               {link.name}
@@ -112,12 +125,14 @@ const Navbar = () => {
           ))}
         </div>
 
-        <button
-          className="mobile-menu-btn"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X /> : <Menu />}
-        </button>
+        {!isServicesPage && (
+          <button
+            className="mobile-menu-btn"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X /> : <Menu />}
+          </button>
+        )}
 
       </div>
 
@@ -128,7 +143,7 @@ const Navbar = () => {
             <Link
               key={link.name}
               to={link.path}
-              className={`mobile-nav-link ${isLinkActive(link.path) ? 'active' : ''}`}
+              className={link.isCta ? 'btn btn-primary mobile-btn' : `mobile-nav-link ${isLinkActive(link.path) ? 'active' : ''}`}
               onClick={(e) => handleLinkClick(e, link.path)}
             >
               {link.name}

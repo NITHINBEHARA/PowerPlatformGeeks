@@ -160,3 +160,67 @@
     text-align: center;
   }
 }
+
+/* Landing Page Dark Theme Footer */
+.footer-dark {
+  background: #0f6b6f; /* Teal/green tone matching website brand */
+  color: #ffffff;
+  border-top: none;
+}
+.footer-dark .footer-description {
+  color: rgba(255, 255, 255, 0.8);
+}
+.footer-dark .footer-title {
+  color: #ffffff;
+}
+.footer-dark .footer-links li a {
+  color: rgba(255, 255, 255, 0.9);
+}
+.footer-dark .footer-links li a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.footer-dark .footer-bottom {
+  color: rgba(255, 255, 255, 0.7);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.footer-dark .footer-logo-img {
+  filter: brightness(0) invert(1);
+}
+
+/* Landing Page Footer Layout Adjustments */
+.footer-grid-landing {
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+@media (max-width: 768px) {
+  .footer-grid-landing {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Landing Page Contact Form Submit Button */
+.btn-landing-submit {
+  background-color: #ffffff;
+  color: #0f6b6f;
+  padding: 14px 24px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+.btn-landing-submit:hover {
+  background-color: #f1f5f9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+.btn-landing-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
